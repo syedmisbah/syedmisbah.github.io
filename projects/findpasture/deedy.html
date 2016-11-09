@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from debarghyadas.com/projects/findpasture/deedy.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Nov 2016 09:11:23 GMT -->
+<head>
+  <title>Create a Map</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=7, IE=9, IE=10">
+  <link rel="stylesheet" href="../../../serverapi.arcgisonline.com/jsapi/arcgis/3.5/js/dojo/dijit/themes/claro/claro.css">
+  <link rel="stylesheet" href="../../../serverapi.arcgisonline.com/jsapi/arcgis/3.5/js/esri/css/esri.css">
+  
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <style type="text/css">
+    
+      #mapDiv {
+      margin: 10px;
+      height: 400px;
+      /*width: 800px;*/
+      border: 2px solid #999;
+      position: relative;
+    }
+    html,
+      body {
+        height: 100%;
+        /* The html and body elements cannot have any padding or margin. */
+      }
+
+      /* Wrapper for page content to push down footer */
+      #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        /* Negative indent footer by it's height */
+        margin: 0 auto -60px;
+      }
+
+      /* Set the fixed height of the footer here */
+      #push,
+      #footer {
+        height: 60px;
+      }
+      #footer {
+        background-color: #f5f5f5;
+      }
+
+      /* Lastly, apply responsive CSS fixes as necessary */
+      @media (max-width: 767px) {
+        #footer {
+          margin-left: -20px;
+          margin-right: -20px;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+      .container .credit {
+        margin: 20px 0;
+      }
+
+      #map-overlay {
+        position: absolute;
+        z-index: 90;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+      }
+
+      #details {
+        height: 400px;
+        overflow:  scroll;
+      }
+
+    </style>
+    
+
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../index.html">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../index.html">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../index.html">
+                    <link rel="apple-touch-icon-precomposed" href="../../index.html">
+                                   <link rel="shortcut icon" href="../../index.html">  
+  
+  <script src="http://serverapi.arcgisonline.com/jsapi/arcgis/3.5/"></script>
+  <script>
+    dojo.require("esri.map");
+    dojo.require("esri.layers.FeatureLayer");
+    dojo.require("esri.dijit.Legend");
+    var SERVER_URLS = {
+      meat_infra: 'http://services1.arcgis.com/rxMuAi9NyHDn2zKX/arcgis/rest/services/USDA_Meat_Infrastructure/FeatureServer/0',
+      food_hub:  'http://services1.arcgis.com/rxMuAi9NyHDn2zKX/ArcGIS/rest/services/Buffer%20of%20Food%20Hubs%2025%2050%20100/FeatureServer/0',
+      farmers_market:  'http://services1.arcgis.com/rxMuAi9NyHDn2zKX/arcgis/rest/services/farmersmarkets/FeatureServer/0',
+      soil_type:  'http://server.arcgisonline.com/ArcGIS/rest/services/Specialty/Soil_Survey_Map/MapServer',
+      terrain: 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer',
+      hydro: 'http://184.72.212.114:6080/arcgis/rest/services/WorldHydroReferenceOverlay/MapServer',
+      satellite: 'http://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer'
+    };
+    var featureLayersList = {};
+    var map;
+    function init(){
+      map = new esri.Map("mapDiv", {
+          center: [-85.0, 36.0],
+          zoom: 7,
+          basemap: "gray"
+        });
+      $('.esriAttribution').hide();
+      $('.logo-med').hide();
+      dialog = new dijit.TooltipDialog({
+            id: "tooltipDialog",
+            style: "position: absolute; width: 200px;   z-index:100"
+          });
+          dialog.startup();
+      //addMapService('soil_type');
+      addFeature('meat_infra');
+
+    };
+    function addMapService(feature) {
+      if (!featureLayersList.hasOwnProperty(feature)) {
+        var featureLayer = new esri.layers.ArcGISTiledMapServiceLayer(SERVER_URLS[feature], {
+          outFields: ["*"],
+          opacity: .50
+        });
+        map.addLayer(featureLayer);
+        featureLayersList[feature] = featureLayer;
+       
+      } else {
+        map.removeLayer(featureLayersList[feature]);
+        delete featureLayersList[feature];
+      }
+    };
+    
+    function addFeature(feature) {
+      if (!featureLayersList.hasOwnProperty(feature)) {
+        var featureLayer = new esri.layers.FeatureLayer(SERVER_URLS[feature], {
+          mode: esri.layers.FeatureLayer.MODE_ONDEMAND,
+          outFields: ["*"],
+          opacity: .50
+        });
+        map.addLayer(featureLayer);
+        featureLayersList[feature] = featureLayer;
+        var templatestring = getString(feature);
+        
+        if (templatestring) {
+          featureLayer.on("mouse-out", closeDialog);
+          featureLayer.on("mouse-over", function(evt){
+            var t = templatestring;
+            addDetails(evt.graphic.attributes);
+            var content = esri.substitute(evt.graphic.attributes,t);
+            var highlightSymbol = new esri.symbol.SimpleFillSymbol(esri.symbol.SimpleFillSymbol.STYLE_SOLID, new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID, new dojo.Color([255,0,0]), 3), new dojo.Color([125,125,125,0.35]));
+
+            var highlightGraphic = new esri.Graphic(evt.graphic.geometry,highlightSymbol);
+            map.graphics.add(highlightGraphic);
+            dialog.setContent(content);
+
+            dojo.style(dialog.domNode, "opacity", 0.85);
+            dijit.popup.open({popup: dialog, x:evt.pageX,y:evt.pageY});
+            });
+        }
+
+      } else {
+        map.removeLayer(featureLayersList[feature]);
+        delete featureLayersList[feature];
+      }
+    }
+    var tablearr = [];
+    function addDetails(atts) {
+      var html = '<table class="table table-hover">';
+      dataArray = [];
+      for (key in atts) {
+        if (atts[key]!="null") {
+        html+='<tr>';
+          html+='<td>'+key+'</td>';         // Push the key on the array
+          html+='<td><b>'+atts[key]+'</b><br></td>'; // Push the key's value on the array
+          html+='</tr>';
+        }
+      }
+      html+='</table>';
+      if (tablearr.indexOf(html)>=0) {
+        do {
+        tablearr.splice(tablearr.indexOf(html),1);
+        } while (tablearr.indexOf(html)>=0);
+        tablearr.push(html);
+      } else {
+        tablearr.push(html);
+      }
+      $('#details').html("<h3>Elements:</h3>"+tablearr.reverse().join("<h3>Elements:</h3>"));
+    }
+    function getString(feature) {
+      switch(feature) {
+        case "farmers_market": return "<b>${Name}</b><br>${City_Town}, ${State} - ${Zip}";
+          break;
+        case "meat_infra": return "<b>${Company}</b><br>${City}, ${State} - ${ZIP_Code}";
+          break;
+        case "food_hub": return "<b>${BUFF_DIST} Mile</b> Distance to FoodHub";
+          break;
+        return null;
+      }
+    }
+
+    function closeDialog() {
+        map.graphics.clear();
+        dijit.popup.close(dialog);
+      }
+    dojo.ready(init);
+  </script>
+
+<script src='../../google_analytics_auto.js'></script></head>
+<body class="claro">
+  <div id="wrap">
+
+      <!-- Begin page content -->
+      <div class="container">
+        <div class="masthead">
+        <h3 class="muted"> <a href="index-2.html"><img src="logo.jpg" width="100" height="100" alt="Logo"> </h3>
+        </a>
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="container">
+              <ul class="nav">
+                <li ><a href="#" >Home</a></li>
+                <!--<li><a href="#">Projects</a></li> -->
+                 <li class="dropdown">
+                      <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Services <b class="caret"></b></a>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="http://google.com/">Financial Assistance</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#anotherAction">Transportation</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+                      </ul>
+                </li>
+                <!--<li><a href="#">Downloads</a></li> -->
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /.navbar -->
+      </div>
+        <div id="search-results" class="row">
+          <div id="left" class="span8">
+            <h2>Map</h2>
+            <div id="mapDiv" class="span8" oncontextmenu="return false">
+              <div id="map-overlay" class="btn-group" data-toggle="buttons-checkbox">
+                <button id="hydro" class="btn" onclick="addMapService('hydro');">Water</button>
+                <button id="terrain" class="btn" onclick="addMapService('terrain');">Terrain</button>
+                <button id="food-hubs" class="btn" onclick="addFeature('food_hub');">Food Hubs</button>
+                <button id="soil-type" class="btn" onclick="addMapService('soil_type');">Soil Type</button>
+                <button id="meat-infra" class="btn active" onclick="addFeature('meat_infra');">Meat Infrastructure</button>
+                <button id="farm-mark" class="btn" onclick="addFeature('farmers_market');">Farmers Markets</button>
+                <button id="satellite" class="btn" onclick="addMapService('satellite');">Satellite</button>
+              </div>
+            </div>
+          </div>
+          <div id="right" class="span4">
+             <h2>Details</h2>
+             <div id="details">
+             </div>
+            
+          </div>
+        </div>
+      </div>
+
+      <div id="push"></div>
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">Created by <a href="../../index.html">FindPasture</a>.</p>
+      </div>
+    </div>
+    <script src="../../../ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+
+<!-- Mirrored from debarghyadas.com/projects/findpasture/deedy.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Nov 2016 09:11:29 GMT -->
+</html>

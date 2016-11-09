@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html>
+
+  
+<!-- Mirrored from debarghyadas.com/writes/the-grad-school-statistics-we-never-had/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Nov 2016 09:06:08 GMT -->
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="../assets/favicon/favicon16.png" sizes="16x16">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon/favicon16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../assets/favicon/favicon.png" sizes="32x32">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon/favicon.png" sizes="32x32">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:site" content="debarghya_das">
+    <meta property="fb:admins" content="608612827" />
+    <meta property="fb:app_id" content="516285075060292" />
+    
+
+      <span itemscope itemtype="http://schema.org/Article">
+      <meta property="og:url"                content="index.html" />
+      <meta itemprop="url"                content="index.html" />
+      <meta property="og:type"               content="article" />
+      <meta property="og:title"              content="The Grad School Statistics We Never Had" />
+      <meta property="title" content="The Grad School Statistics We Never Had">
+      <meta property="twitter:title" content="The Grad School Statistics We Never Had">
+      <meta itemprop="headline" content="The Grad School Statistics We Never Had">
+      <meta property="description"        content="GradCafe has 372 thousand graduate school admissions results. I scraped 93% of that data, including 80 thousand GRE scores and 75 thousand undergraduate GPAs. I also extensively deduplicated the user provided university names to over 98% cleanliness, and compiled a hyperclean Computer Science specific set of 28 thousand results. Let's dive into these never-before-seen numbers!" />
+      <meta property="og:description"        content="GradCafe has 372 thousand graduate school admissions results. I scraped 93% of that data, including 80 thousand GRE scores and 75 thousand undergraduate GPAs. I also extensively deduplicated the user provided university names to over 98% cleanliness, and compiled a hyperclean Computer Science specific set of 28 thousand results. Let's dive into these never-before-seen numbers!" />
+      <meta itemprop="description" content="GradCafe has 372 thousand graduate school admissions results. I scraped 93% of that data, including 80 thousand GRE scores and 75 thousand undergraduate GPAs. I also extensively deduplicated the user provided university names to over 98% cleanliness, and compiled a hyperclean Computer Science specific set of 28 thousand results. Let's dive into these never-before-seen numbers!"/>
+      <meta property="twitter:description"        content="GradCafe has 372 thousand graduate school admissions results. I scraped 93% of that data, including 80 thousand GRE scores and 75 thousand undergraduate GPAs. I also extensively deduplicated the user provided university names to over 98% cleanliness, and compiled a hyperclean Computer Science specific set of 28 thousand results. Let's dive into these never-before-seen numbers!" />
+      
+        <meta property="og:image"              content="../assets/grad-main.png" />
+        <meta itemprop="image" content="../assets/grad-main.png"></meta>
+        <meta property="twitter:image"              content="../assets/grad-main.png" />
+        <link rel="image_src" href="../assets/grad-main.png">
+      
+      
+
+    
+    <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Debarghya Das">
+    </span>
+    <span itemprop="publisher" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Debarghya Das">
+    </span>
+    <meta name="author" content="Debarghya Das">
+    <meta property="article:author" content="https://www.facebook.com/608612827" />
+    <meta property="article:publisher" content="https://www.facebook.com/608612827" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+    <title>The Grad School Statistics We Never Had</title>
+
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="index.html" >
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link rel="author" href="https://plus.google.com/104102199152571251200">
+
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/main.css">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="../css/materialize.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="../../../code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="../js/materialize.min.js"></script>
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-37492337-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+<script src='../../google_analytics_auto.js'></script></head>
+
+
+    <body>
+
+    <header class="site-header">
+
+  <div class="wrap">
+    <a class="site-title cursive-title" href="../index.html">
+    <div class="title-icon" style="float:left; margin-top:10px; ">
+    <svg version="1.1" id="writes" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+               width="40px" height="40px" viewBox="0 0 35.738 35.738" >
+      <path fill="#C2C2C2" d="M0,35.667c0,0,11.596-37.07,35.738-35.55c0,0-2.994,4.849-10.551,6.416c0,0,3.518,0.429,6.369-0.522
+        c0,0-1.711,5.515-11.025,6.273c0,0,5.133,1.331,7.414,0.57c0,0-0.619,4.111-10.102,6.154c-0.562,0.12-4.347,1.067-1.306,1.448
+        c0,0,4.371,0.763,5.514,0.381c0,0-3.744,5.607-12.928,5.132c-0.903-0.047-1.332,0-1.332,0L0,35.667z"/>
+    </svg>
+    </div>
+
+
+      Writes
+    </a>
+    <span class="site-title site-subtitle">Debarghya Das</span>
+
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           viewBox="0 0 18 15" enable-background="new 0 0 18 15" xml:space="preserve">
+          <path fill="#505050" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0
+            h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#505050" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484
+            h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#505050" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0
+            c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <a class="page-link" href="../index.html">Home</a>
+        <a class="page-link" href="../../index.html">About</a>
+        <a class="page-link" href="feed:http://debarghyadas.com/writes/feed.xml" type="application/rss+xml" rel="alternate">Feed</a>
+      </div>
+    </nav>
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      <div class="post">
+
+  <header class="post-header">
+    <b><h1>The Grad School Statistics We Never Had</h1></b>
+    
+    <p class="meta"><span itemprop="datePublished" content="2015-11-17">Nov 17, 2015</span> • 11 months ago • 27 min read</p>
+    
+      <div class="post-features"><i>Retweeted and liked by UTexas Biology Professor <a target="_blank" href="https://twitter.com/DoctorZen">Zen Faulkes</a>, Mount Holyoke Physics Professor <a target="_blank" href="https://twitter.com/DrKerstin">Kerstin Nordstrom</a>, UVermont Math Professor <a target="_blank" href="https://twitter.com/ChrisDanforth">Chris Danforth</a>, UChicago Psychology Professor <a target="_blank" href="https://twitter.com/WMGoldstein100">Bill Goldstein</a>, data scientist and Reddit <a target="_blank" href="https://www.reddit.com/r/datascience/">/r/datascience</a> moderator <a target="_blank" href="https://twitter.com/chrisalbon">Chris Albon</a>, WIRED author <a target="_blank" href="https://twitter.com/aatishb">Aatish Bhatia</a> and <a target="_blank" href="https://twitter.com/debarghya_das/status/669544640270462976">more</a>.</i></div>
+    
+  </header>
+
+  <article itemprop="articleBody" class="post-content">
+  <p><em>The entire dataset and the very hacky code used to produce these plots are open-sourced on <a href="https://github.com/deedy/gradcafe_data">Github</a></em></p>
+
+<div class="imgcap">
+  <img src="../assets/grad-main.png">
+  <div class="thecap">
+    The top 10 graduate schools ranked by highest relative GRE, undergraduate GPA and acceptance rate. Left to right, top to bottom - <a target="_blank" href="../../index.html">MIT</a>, <a target="_blank" href="http://www.stanford.edu/">Stanford</a>, <a target="_blank" href="http://www.princeton.edu/">Princeton</a>, <a target="_blank" href="http://www.yale.edu/">Yale</a>, <a target="_blank" href="http://berkeley.edu/">UC Berkeley</a>, <a target="_blank" href="http://www.harvard.edu/">Harvard</a>, <a target="_blank" href="http://www.caltech.edu/">Caltech</a>, <a target="_blank" href="http://www.uchicago.edu/">UChicago</a>, <a target="_blank" href="http://www.upenn.edu/">Penn</a> and <a target="_blank" href="http://www.columbia.edu/">Columbia</a>.
+  </div>
+</div>
+
+<p>I obsess over numbers. When I applied to college, knowing my SAT score was &quot;good enough&quot; wasn&#39;t enough. I didn&#39;t care that univerities said their admissions &quot;took into account many other factors&quot;; I wanted to know precisely how many people had that score or more and got into the exact school and the exact program I wanted to get into. It feels good to quantify.</p>
+
+<p>It&#39;s been four years since my undergraduate admission days, and I really looked forward to Graduate school applications. It seemed, from folklore, notably devoid of the many complex quirks of its undergraduate predecessor - athlete recruiting, affirmative action, alumni reservations, <a target="_blank" href="../../../cdn.static-economist.com/sites/default/files/imagecache/original-size/images/2015/09/articles/body/20151003_FBC019.png">racial quotas</a> and more. It seemed like a much purer meritocracy, and I expected that meritocracy to be reflected in the admissions data. Unfortunately, none existed.</p>
+
+<h4 id="the-current-state-of-graduate-school-admissions-data">The Current State of Graduate School Admissions Data</h4>
+
+<p>GRE data by university is paywalled on <a target="_blank" href="http://grad-schools.usnews.rankingsandreviews.com/best-graduate-schools/top-engineering-schools/eng-rankings?int=a74509">US News &amp; World Report</a>, the premier college ranking organization. Acceptance rates are available from unverified one-offs such as this one on <a target="_blank" href="https://www.quora.com/How-competitive-is-admission-to-Stanfords-graduate-program-in-electrical-engineering-MS-MS-PhD-and-PhD/answers/1768525">Quora</a>. Verified college admissions statistics are few and far between and much more uncomprehensive than their undergraduate counterparts, such as this one for <a target="_blank" href="https://msande.stanford.edu/admissions/masters/masters-science-admission-statistics">Stanford&#39;s MS program</a>. <a target="_blank" href="http://magoosh.com/">Magoosh</a>, a GRE prep company, probably drove a lot of traffic to their site by publishing the first <a target="_blank" href="http://magoosh.com/gre/2013/stanford-gre-scores/">GRE statistics</a> by college and major. Unfortunately, these are (as they admit) mere estimations, with a fairly hand-wavy methodology:</p>
+
+<blockquote>
+<p>Using the limited score data in the US News &amp; World Report’s release on graduate schools (for engineering and education), I created a block scale that assumes a standard difference between the ETS’s average of intended applicants of a specific major and the rank block (ie Ranks 1-10, 11-50, 51-100). Next I added the expected difference to the average score of the intended major and spread 2 points on either side of that to create a nice range.</p>
+
+<p>-- <cite><a href="http://magoosh.com/gre/2013/stanford-gre-scores/">Magoosh</a></cite></p>
+</blockquote>
+
+<div class="imgcap">
+  <img src="../assets/grad-usnews.png">
+  <div class="thecap">
+    Paywalled rankings on <a target="_blank" href="http://grad-schools.usnews.rankingsandreviews.com/best-graduate-schools/top-engineering-schools/eng-rankings?int=a74509">US News & World Report</a>.
+  </div>
+</div>
+
+<p>There are only a handful of good ways to figure out what the best graduate schools for you are. Ideally, one would actually know precise details about their intended area of research and the institutions to which established professors in that field belong. The only way to get an idea of graduate school quality <em>online</em> are from one of many ranked lists, with contrasting abstruse methodologies.</p>
+
+<p>Fortunately, we could do a little something to help alleviate this problem.</p>
+
+<h2 id="contents">Contents</h2>
+
+<ul>
+<li><a href="#the-bird&#x27;s-eye:-a-third-of-a-million-students">The Bird&#39;s Eye: A Third of a Million Students</a></li>
+<li><a href="#a-shallow-dive:-playing-with-numbers">A Shallow Dive: Playing with Numbers</a></li>
+<li><a href="#your-gre-score-isn&#x27;t-as-good-as-you-thought">Your GRE Score Isn&#39;t As Good As You Thought</a></li>
+<li><a href="#getting-into-grad-school-may-just-be-a-numbers-game">Getting Into Grad School May Just Be a Numbers Game</a></li>
+<li><a href="#are-international-students-held-to-different-standards?">Are International Students Held To Different Standards?</a></li>
+<li><a href="#a-shamelessly-formulaic-college-ranking">A Shamelessly Formulaic College Ranking</a></li>
+<li><a href="#which-majors-are-the-smartest?">Which Majors Are The Smartest?</a></li>
+<li><a href="#concluding-thoughts">Concluding Thoughts</a></li>
+</ul>
+
+<h1 id="the-bird-39-s-eye-a-third-of-a-million-students">The Bird&#39;s Eye: A Third of a Million Students</h1>
+
+<p><a target="_blank" href="http://thegradcafe.com/">GradCafe</a> is a forum that allows prospective graduate students to submit their graduate school admissions decisions and details about their scores. It has been running since early 2006 (nearly 10 years now) and since early 2010 has been accepting structured GRE and GPA data . It has 372 thousand entries, and we managed to scrape 93% of the data. Although similar things have been tried before, such volume was never reached. A cursory look online reveals a few:</p>
+
+<ul>
+<li><a href="http://finzi.psych.upenn.edu/library/brewdata/html/brewdata.html">BrewData</a>, an R package by Nathan Welch, can be used to download cuts of GradCafe data.</li>
+<li><a href="http://forum.thegradcafe.com/topic/51483-scraped-admissions-data/">Scraped Admissions Data</a> scrapes the data and generates several acceptance rate plots.</li>
+<li><a href="http://minimallysufficient.github.io/2015/02/08/gradcafe.html">Minimally Sufficient</a>, a blog, writes about some experiments using BrewData.</li>
+<li><a href="http://arxiv.org/pdf/1504.03952.pdf">An Analysis of Physics Graduate Admissions data</a>, an academic paper by Jan Mikkenje which uses GradCafe Physics admissions data.</li>
+</ul>
+
+<p>One of the issues with this data is that some of the fields are user supplied, like <strong>university name</strong> and <strong>program</strong> applied for. There is misspelt data, names with abbreviations in parenentheses and some without, university names with the &quot;University&quot; missing, capitalization issues, additional punctuation, over-specification (the internal college in the university), ambiguity (USC is both University Of Southern California and University Of South Carolina) and dozens of other inconsistencies we need to account for. Without effectively deduplicating different spelling representations, our analysis becomes far more accurate. Fortunately, we managed to both algorithmically and manually ensure <strong>98%</strong> cleanliness on the university name field. We haven&#39;t yet cleaned the program field for all our data, only specifically for the Computer Science fraction.</p>
+
+<p>While a closer look of the exact schema is available <a href="https://github.com/deedy/gradcafe_data">here</a>, the basic information this dataset gives us is:</p>
+
+<ul>
+<li><strong>University Name</strong> The name of the university applied to.</li>
+<li><strong>Major</strong> The name of the subject applied for, or the program applied to.</li>
+<li><strong>Degree</strong> While notably lacking some options, the degree sought to be obtained - typically MS or PhD.</li>
+<li><strong>Season</strong> The first character is <strong>F</strong> or <strong>S</strong>, denoting the Fall or Spring of the year intended to start the program and the last two characters represent the year. For example, F14 is Fall 2014.</li>
+<li><strong>Decision</strong> The decision the university made - <strong>Accepted</strong>, <strong>Rejected</strong>, <strong>Wait listed</strong>, <strong>Interview</strong>, or <strong>Other</strong>.</li>
+<li><strong>Decision Method</strong> One of - email, website, post, phone or other.</li>
+<li><strong>Decision Date</strong> The date the decision was made.</li>
+<li><strong>Undergraduate GPA</strong> An optional field to state your undergraduate GPA. Some users state it on 4.0, some on 4.3 and some on 10.0, so you need to be wary before using it.</li>
+<li><strong>Is New GRE</strong> Thankfully the old GRE and new GRE scores are easily identifiably by a simple regular expressions. Since there is no guideline when students report the data, we create this field to make it easier to process. About 25% of reports have valid GRE scores, 70% of which are the new GRE.</li>
+<li><strong>GRE Verbal</strong> A score, either between 130 and 170 (for the new GRE) or 200 and 800 (for the old one) on the Graduate Record Examination Verbal section.</li>
+<li><strong>GRE Quant</strong> A score, either between 130 and 170 (for the new GRE) or 200 and 800 (for the old one) on the Graduate Record Examination Quant or Math section.</li>
+<li><strong>GRE Writing</strong> A score, between 0 and 6 at intervals of 0.5 on the GRE Analytical Writing section.</li>
+<li><strong>GRE Subject</strong> A score, between 200 and 1000 on the GRE Subject Test. This column isn&#39;t particularly useful because there&#39;s no way of telling <em>what</em> subject the test is in. You can at best guess, based on the reported major.</li>
+<li><strong>Status</strong> The background of the applicant - <strong>American</strong>, <strong>International</strong>, <strong>International with US degree</strong> or <strong>Other</strong></li>
+<li><strong>Post date</strong> The date this decision was reported.</li>
+<li><strong>Comments</strong> Additional comments. Previously, this field would be used to report more GRE and GPA info, and about 1000 or so can be recovered with some smart regex matching.</li>
+</ul>
+
+<p>The sheer detail makes this data particularly empowering, and lets us answer a plethora of questions. Splitting the data in one of many ways can help us gain valuable insight in admissions that may have previously only been a latent bias amongst professors, or perhaps unveil hidden secrets to a magic &quot;admission formula&quot;.</p>
+
+<p>Currently, it&#39;s widely acknowledged (in different proportions depending on who you ask) that the most critical factors to get into grad school, particularly PhD programs, are:</p>
+
+<ul>
+<li><strong>Research Experience</strong> Professors love to see research experience, especially with colleagues they are acquainted with and in the field of the candidate&#39;s interest. Published papers at important conferences and being a first or second author on an academic publication adds tremendous value.</li>
+<li><strong>Recommendations</strong> Widely regarded as the most important factor in admissions, good recommendations, especially from Professors who are highly regarded or well known in their field, is instrumental to admission.</li>
+<li><strong>Undergraduate GPA</strong> Many PhD programs have strict GPA cutoffs of 3.5 or 3.6. Admissions likes to not only see a strong GPA, but advanced graduate level classes that show your expertise.</li>
+<li><strong>GRE</strong> While GREs are typically dismissed as merely a sanity check or a screening filter that may raise a red flag or two, we investigate how true this is later in the article.</li>
+<li><strong>Repute of your undergraduate institution</strong> While many like to downplay this factor, it anecdotally seems to make a difference. Perhaps this is because it correlates with not only how smart you may have been to be admitted there, but the strength of the curriculum, professors more likely to be known at other prestigious universities and a better calibration of your GPA and coursework.</li>
+</ul>
+
+<p>While it feels untoward to complain about such quality data, having several more fields, particularly undergraduate institution name, and some measure of whether the candidate had research experience and published papers may have made it possible to even train a high-confidence classifier on the data!</p>
+
+<h1 id="a-shallow-dive-playing-with-numbers">A Shallow Dive: Playing with Numbers</h1>
+
+<p>Before diving in, it was essential to ensure my exhilaration with this phenomenal chunk of dat was warranted. Like any cynic, I thought, can one really trust self-reported data? I&#39;d imagine not all self-reported data is going to be accurate, but was it reasonable enough to make inferences from?</p>
+
+<h4 id="growth">Growth</h4>
+
+<p>Let&#39;s first look at the decision trends over time. To visualize this trend, we plot a Kernel Density Estimate plot of the decision dates of different degrees time. The majority of the degrees reported, often as a result of the constraints of Gradcafe itself, were MS and PhD degrees. Manually looking through comments and majors reveals that MA and many other Masters degrees are often misreported as MS degrees. <strong>PhDs</strong> constituted <strong>63%</strong> of about 350,000 results and <strong>MS</strong> around <strong>35%</strong>. To be accurate, we hypothesized that decision dates would peak early on in the year, with Masters decisions being made slightly after PhD decisions. That turned out to be true.</p>
+
+<div class="imgcap">
+  <img src="../assets/grad/growth.png">
+  <div class="thecap">
+    The seasonal trends and growth of GradCafe over 10 years. Reporting of decisions peak in the earlier part of the year, when grad school decisions are typically anounced, and Masters decisions come slightly after PhD ones.
+  </div>
+</div>
+
+<p>From its humble beginnings in 2006, with 7500 annual decisions, reports grew at an average of 30% every year all the way to 2014. This year, it&#39;s down 3% with a month of limited activity left, a plateauing trend similar to <a href="../2015/11/08/looking-back-at-9-years-of-hacker-news/index.html">another site</a>.</p>
+
+<h4 id="comments">Comments</h4>
+
+<p>More than 60% of reportees posted comments along with their decisions. To get a sense of what people talked about, we took 3 million words of comments and made a word cloud. Aside from the obvious, &quot;funding&quot;, &quot;fellowship&quot; seem like expected graduate student concerns.</p>
+
+<div class="imgcap">
+  <img src="../assets/grad/wordcloud.png">
+  <div class="thecap">
+    A word cloud of all the comments posted with the grad school decisions in the shape of a graduation cap. There were over <i>3 million</i> words in the comments.
+  </div>
+</div>
+
+<h4 id="gpa-and-gre">GPA and GRE</h4>
+
+<p>There were more than 50 thousand people reporting both their undergraduate GPA and their GRE scores (I only counted the new GRE, graded on 170). Plotting the data revealed fairly expected trends. Quantitative scores seemed to be very high, peaking at the maximum possible score of 170 (which, on the GRE, is no superhuman feat). Verbal scores seems relatively high as well, as did GPAs. Most GPAs hovered in the 3.5 to 4 region - which passes the sanity check. Graduate schools, particularly PhD programs, tend to have a minimum GPA cutoff for applicants usually around the 3.5 area, and most colleges have GPAs in the 0 to 4 range, with few colleges counting A+s as 4.3s, making their theoretical range a 4.3.</p>
+
+<div class="imgcap">
+  <img src="../assets/grad/all-distributions.png">
+  <div class="thecap">
+    Two dimensional distributions showsing the marginals</br><i>Left</i> Undergraduate GPA vs GRE Quant </br> <i>Middle</i> Undergraduate GPA vs GRE Verbal </br> <i>Right</i> GRE Quant vs GRE Verbal
+  </div>
+</div>
+
+<h1 id="your-gre-score-isn-39-t-as-good-as-you-thought">Your GRE Score Isn&#39;t As Good As You Thought</h1>
+
+<p>Most graduate schools ask for some form of standardized testing. For medical school, it&#39;s the MCATs. For business school, it&#39;s the GMATs. For most other graduate schools, it&#39;s the GRE. The Graduate Record Examination. It&#39;s never the deciding factor in your graduate school application, but typically rather used to screen applicants on a universal metric. It&#39;s similar to its undergraduate counterpart, the SAT, in many ways. It has three sections - <strong>Reading</strong> (Verbal), <strong>Math</strong> (Quantitative) and <strong>Writing</strong> (Analytical Writing). The Writing section is scored between 0 and 6 in increments of 0.5, and is usually the far less important section. In the new GRE, the other two sections are graded between <strong>130</strong> and <strong>170</strong>.</p>
+
+<p>They say</p>
+
+<blockquote>
+<p>PDFs are where data goes to die.</p>
+
+<p>-- <cite><a href="https://twitter.com/cshirky/status/1061010907">Ross Mayfield</a></cite></p>
+</blockquote>
+
+<p>Unsurprisingly, GRE distributions are buried in <a href="http://www.ets.org/gre/percentile">pdfs</a>. The data reveals that the GRE Verbal average is about <strong>150</strong> and the Quant average about <strong>152</strong>, fairly bang in the middle of the 130 - 170 range. As a GRE taker, these numbers seemed fairly low especially for an applicant pool looking to go to graduate school. I couldn&#39;t imagine PhD candidates at even mid-tier schools averaging a 150 in Verbal and Quant. In the data I had, the Verbal average for all grad school applicants was <strong>158.5</strong> and the Quant average was <strong>160.4</strong>. For PhD applicants, those numbers jumped to <strong>159.5</strong> and <strong>162</strong>. Interestingly, it didn&#39;t move as much when filtered on accepted students, rising to <strong>159.8</strong> and <strong>162.6</strong> respectively.</p>
+
+<div class="imgcap">
+  <img src="../assets/grad/gre-diff.png">
+  <div class="thecap">
+    How the distribution of GRE graduate school applicants reportees compares to all GRE test takers.
+  </div>
+</div>
+
+<p>Before jumping to any conclusions, I should mention that there are a fair number of biases in this data:</p>
+
+<ul>
+<li>Self-reported candidates are likelier to post when they are Accepted.</li>
+<li>They&#39;re likely to post results for multiple applications.</li>
+<li>More successful candidates are likely to post their personal numbers.</li>
+<li>Ostensibly, the quality of applicants who engage heavily with an online forum are far more serious about their application than the entirety of the test-taking pool, leading to better results/numbers.</li>
+</ul>
+
+<p>Having said that, it&#39;s <em>still</em> unlikely that those biases would account for such a high degree of difference. Later on, we see that acceptance rates computed from our data do not differ <em>too</em> drastically with those reported by the school themselves. Our data further shows that although there is a bias towards better schools in the forums, there are plenty of applicants reporting data to mid-tier univerities as well. Without attempting to estimate the precise contribution of each of these biases, it seems very plausible <strong>that typical GRE scores of applicants are significantly higher than that of the entire test taking contingent</strong>. To any GRE takers: your score might not be as awesome as the reported percentiles made it out to be!</p>
+
+<h1 id="getting-into-grad-school-may-just-be-a-numbers-game">Getting Into Grad School May Just Be a Numbers Game</h1>
+
+<p>Scientists love beautiful solutions. Wouldn&#39;t it be amazing to discover admissions decisions are highly formula driven? Plug in a GRE score and a GPA and you&#39;re all set. Alright, maybe not <em>amazing</em> for the applicant so much. The question we set forth is - how much do these numbers alone impact your decision? Before we answer that, we need to verify whether accepted candidates for a particular instiution even have higher GPA and GRE scores than the rejected one. This beautiful <a href="https://www.youtube.com/watch?v=hVimVzgtD6w">Hans Rosling</a>-esque animation depicts it.</p>
+
+<div class="imgcap">
+  <video width="100%"
+        poster="../assets/grad/colleges-video.png"
+        src="../assets/grad/colleges-video.mp4"autoplay loop>
+      Your browser does not support the video tag.
+  </video>
+  <div class="thecap">
+    <i>Right click to pause.</i> While GPA and GRE scores of all PhD applicants to a university somewhat reveal their overall rank, the margins between the universities expand as we split the "all applicants" into the "accepted" and "rejected" pools. </br> In the above animation, the following abbreviations are used: UMN - University Of Minnesota Twin Cities. UIUC - University Of Illinois, Urbana-Champaign. OSU - Ohio State University. UW - University Of Washington, Seattle. UCSD - University Of California, San Diego. UCB - University Of California, Berkeley.
+  </div>
+</div>
+
+<div class="imgcap">
+  <img src="../assets/grad/colleges-accept.png">
+  <div class="thecap">
+    Undergraduate GPA vs Total GRE score for the top 100 colleges with the most applicants. Not all colleges have accepted bubble to the top right of their reject bubbles. Look closely to see if you can find one.
+  </div>
+</div>
+
+<p>Clearly, for PhD students, accepted applicants - on average - perform better than rejected applicants on all three fronts - GPA, and both sections of the GRE. <strong>Better numbers have had better odds of getting accepted.</strong></p>
+
+<p>Let&#39;s take it a step futher. Could we, with the data that we have, build a classifier that classifies with a higher accuracy than the baseline? The naive baseline accuracy here is <code>max(&lt;acceptance ratio&gt;, 1 - &lt;acceptance ratio&gt;)</code>. Simply put - guessing that all applicants would be rejected or all accepted would yield this accuracy. I tried some simple experiments, and found that at best, using numbers to predict admission yielded little to no more success than the naive baseline when it came to established reputed colleges like <em>Stanford</em> and <em>MIT</em>. However, with mid-tier colleges, such as <em>University Of North Carolina, Chapel Hill (UNC)</em> and <em>University Of Virginia (UVA)</em> and many other public colleges, numbers could be used to predict admission decisions at upto a <strong>10-12% higher accuracy</strong> than the naive baseline, with an absolute accuracy that would go to the <strong>75-80%</strong> accuracy range.</p>
+
+<p>One might argue that trying to classify acceptances for PhDs for a college isn&#39;t fine grained enough, but taking in the major of choice would level the playing field. Unfortunately, the data is sparse at this granularity, but even on observation, no real conclusive evidence can be drawn. Take the following distribution for Stanford PhD applicants in Physics:</p>
+
+<div class="imgcap">
+  <img src="../assets/grad/stanfordphysics.png">
+  <div class="thecap">
+    Undergraduate GPA vs Total GRE score for Stanford PhD applicants. Green dots represent acceptances and red dots represent rejections.
+  </div>
+</div>
+
+<p>This chart shows us that GPA is usually used as a screening bar, as is the GRE score, but even a high GPA and a GRE <strong>can only increase your odds</strong>, but by no means guarantees an acceptance. Is graduate school merely a numbers game? The data says: numbers matter, but there&#39;s more to it.</p>
+
+<h1 id="are-international-students-held-to-different-standards">Are International Students Held To Different Standards?</h1>
+
+<p>I applied to the US for my undergraduate degree and boy, don&#39;t I know how daunting it can be. It&#39;s difficult enough trying to piece together what a college is like from things you read online, but on top of that you&#39;re trying to figure out how in the world you&#39;re going to shell out a quarter of a million dollars for this. Because of the limited size of the applicant pool in my vicinity, I found myself constantly asking myself what the admission bar really is vis-a-vis my experiences. It frightened me that MIT&#39;s acceptance rate for undergrads was 9.7% for US Citizens and 3.3% for Internationals. With this data, I sought to answer the question: Is it harder for international students to get into grad school?</p>
+
+<p>It turns out that when we compare International student acceptance rates to American student ones for PhD programs for the top 50 schools, the former is on on average <strong>14%</strong> higher than the latter (the median is <strong>18.5%</strong>). That is, if the average school accepts American students at <code>x%</code>, it would accept Internationals at <code>1.14x%</code>. The average absolute percentage difference is <strong>6%</strong>. Below, I tabulated the ten hardest universities comparitively for international students. <strong>AR</strong> is the acceptance rate, <strong>(A)</strong> denotes American applicants and <strong>(I)</strong> denotes International ones.</p>
+
+<table><thead>
+<tr>
+<th>University Name</th>
+<th>AR (A)</th>
+<th>AR (I)</th>
+<th>%age Harder</th>
+<th>Applicants (A)</th>
+<th>Applicants (I)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Vanderbilt</td>
+<td>34.6%</td>
+<td>19.6%</td>
+<td>43%</td>
+<td>684</td>
+<td>301</td>
+</tr>
+<tr>
+<td>UC Santa Barbara</td>
+<td>52.6%</td>
+<td>30.2%</td>
+<td>43%</td>
+<td>1129</td>
+<td>602</td>
+</tr>
+<tr>
+<td>UC Berkeley</td>
+<td>33.1%</td>
+<td>19.9%</td>
+<td>40%</td>
+<td>2771</td>
+<td>1599</td>
+</tr>
+<tr>
+<td>GeorgiaTech</td>
+<td>74.3%</td>
+<td>45.9%</td>
+<td>38%</td>
+<td>366</td>
+<td>628</td>
+</tr>
+<tr>
+<td>UFlorida, Gainesville</td>
+<td>66.3%</td>
+<td>43.8%</td>
+<td>34%</td>
+<td>489</td>
+<td>447</td>
+</tr>
+<tr>
+<td>Cornell</td>
+<td>39.9%</td>
+<td>26.5%</td>
+<td>34%</td>
+<td>2060</td>
+<td>1708</td>
+</tr>
+<tr>
+<td>Carnegie Mellon</td>
+<td>40.9%</td>
+<td>27.5%</td>
+<td>33%</td>
+<td>750</td>
+<td>1117</td>
+</tr>
+<tr>
+<td>UC, San Diego</td>
+<td>44.7%</td>
+<td>32.0%</td>
+<td>29%</td>
+<td>1616</td>
+<td>1098</td>
+</tr>
+<tr>
+<td>UCLA</td>
+<td>48.9%</td>
+<td>35.2%</td>
+<td>28%</td>
+<td>2240</td>
+<td>1272</td>
+</tr>
+<tr>
+<td>Johns Hopkins</td>
+<td>41.7%</td>
+<td>30.2%</td>
+<td>28%</td>
+<td>865</td>
+<td>533</td>
+</tr>
+</tbody></table>
+
+<p>Just because international students have a statistically lower acceptance rate, however, <em>doesn&#39;t</em> mean that admissions are necessarily harder for them. It may just be that the bar is the same and fewer people meet that bar. We can only make a conclusive decision by comparing objective measures between the two applicant pools. Let&#39;s look at their numbers.</p>
+
+<div class="imgcap">
+  <img src="../assets/grad/international.png">
+  <div class="thecap">
+    (A) denotes American applicants. (I) denotes Interntional applicants. Green bubbles denote accepted American applicants. Blue bubbles denote accepted International applicants. Red bubbles denote rejected American applicants. Purple bubbles denote rejected international applicants.
+  </div>
+</div>
+
+<p>The data looks quite spectacular. When compared objectively, the four applicant pools - American accepts, American rejects, International accepts, and International rejects - occupy their own quadrant when comparing any two metrics. We observe that</p>
+
+<ul>
+<li>Accepted applicants typically have statistically significantly higher GPAs than their rejected counterparts, and slightly higher GRE Quant and Verbal scores.</li>
+<li>Internationals uniformly seem to have slightly higher GRE Quant scores and much lower GRE Verbal scores than their American counterparts.</li>
+<li>Amongst accepted students, International students still have much lower Verbal scores than their American counterparts. This suggests that they <em>aren&#39;t</em> expected to match American applicants in the English department.</li>
+<li>In the GPA department, International students are by and large held to the same requirements as American ones.</li>
+<li>In the GRE quantiative section, despite accepted International students having higher average scores than their American counterparts, the difference isn&#39;t significant. The bar seems to be the same.</li>
+</ul>
+
+<p>Overall, it&#39;s <strong>okay for international students to have lower verbal scores</strong> compared to American ones. The important discriminatory factors for acceptance seem to be your Quant score and your undergraduate GPA, and in these regards, International students don&#39;t seem to be treated any differently.</p>
+
+<h1 id="a-shamelessly-formulaic-college-ranking">A Shamelessly Formulaic College Ranking</h1>
+
+<p>I dislike rankings. Let me preface with that, just in case the title wasn&#39;t blatant enough. I do, however, love data. With all these numbers available, I just had to plug in the numbers to see how far the self-reported data concorded with public knowledge of rankings. In fact, merely looking at the numbers of the applicant pool revealed a familiar ordering of universities:</p>
+
+<div class="imgcap">
+  <img src="../assets/grad/colleges-applicant.png">
+  <div class="thecap">
+    Undergraduate GPA vs Total GRE score for PhD applicants at different univerities.
+  </div>
+</div>
+
+<h4 id="methodology">Methodology</h4>
+
+<p>For a more formalized ranking, we took all PhD applicants to all majors and made sure there were at least 30 PhD applicants for each college reporting their GPA and GRE scores. For these colleges, we found the standard deviations for the <strong>acceptance rate</strong> (negative std for acceptance rate), <strong>undergraduate GPA</strong> and the <strong>GRE</strong>, averaged them and sorted. Here are the top 20:</p>
+
+<div class="imgcap">
+  <img src="../assets/grad-top20.png">
+  <div class="thecap">
+    The top 10 graduate schools ranked by highest relative GRE, undergraduate GPA and acceptance rate. Left to right, top to bottom - <a target="_blank" href="../../index.html">MIT</a>, <a target="_blank" href="http://www.stanford.edu/">Stanford</a>, <a target="_blank" href="http://www.princeton.edu/">Princeton</a>, <a target="_blank" href="http://www.yale.edu/">Yale</a>, <a target="_blank" href="http://berkeley.edu/">UC Berkeley</a>, <a target="_blank" href="http://www.harvard.edu/">Harvard</a>, <a target="_blank" href="http://www.caltech.edu/">Caltech</a>, <a target="_blank" href="http://www.uchicago.edu/">UChicago</a>, <a target="_blank" href="http://www.upenn.edu/">Penn</a>, <a target="_blank" href="http://www.columbia.edu/">Columbia</a>,  <a target="_blank" href="http://www.rockefeller.edu/">Rockefeller</a>,  <a target="_blank" href="http://www.cornell.edu/">Cornell</a>,  <a target="_blank" href="http://www.cmu.edu/">CMU</a>,  <a target="_blank" href="http://www.northwestern.edu/">Northwestern</a>,  <a target="_blank" href="http://www.duke.edu/">Duke</a>,  <a target="_blank" href="http://www.brown.edu/">Brown</a>,  <a target="_blank" href="http://www.ucsf.edu/">UCSF</a>,  <a target="_blank" href="http://www.wustl.edu/">WUSTL</a>,  <a target="_blank" href="http://www.nyu.edu/">NYU</a> and  <a target="_blank" href="http://www.umich.edu/">UMich</a>.
+  </div>
+</div>
+
+<table><thead>
+<tr>
+<th>University</th>
+<th>Total</th>
+<th>A+R</th>
+<th>Accept</th>
+<th>Grades</th>
+<th></br> 25%</th>
+<th>GPA 50%</th>
+<th></br> 75%</th>
+<th></br> 25%</th>
+<th>GREV 50%</th>
+<th></br> 75%</th>
+<th></br> 25%</th>
+<th>GREQ 50%</th>
+<th></br> 75%</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="http://mit.edu/"><strong>MIT</strong></a></td>
+<td>4140</td>
+<td>3557</td>
+<td><strong>26.8%</strong></td>
+<td>457</td>
+<td>3.81</td>
+<td><strong>3.92</strong></td>
+<td>3.99</td>
+<td>160</td>
+<td><strong>164</strong></td>
+<td>167</td>
+<td>164</td>
+<td><strong>168</strong></td>
+<td>170</td>
+</tr>
+<tr>
+<td><a href="http://stanford.edu/"><strong>Stanford</strong></a></td>
+<td>6666</td>
+<td>5860</td>
+<td><strong>24.1%</strong></td>
+<td>1002</td>
+<td>3.80</td>
+<td><strong>3.90</strong></td>
+<td>3.99</td>
+<td>159</td>
+<td><strong>164</strong></td>
+<td>168</td>
+<td>164</td>
+<td><strong>168</strong></td>
+<td>170</td>
+</tr>
+<tr>
+<td><a href="http://princeton.edu/"><strong>Princeton</strong></a></td>
+<td>4298</td>
+<td>3887</td>
+<td><strong>25.2%</strong></td>
+<td>480</td>
+<td>3.74</td>
+<td><strong>3.88</strong></td>
+<td>3.96</td>
+<td>160</td>
+<td><strong>164</strong></td>
+<td>168</td>
+<td>163</td>
+<td><strong>167</strong></td>
+<td>169</td>
+</tr>
+<tr>
+<td><a href="http://yale.edu/"><strong>Yale</strong></a></td>
+<td>4351</td>
+<td>3776</td>
+<td><strong>24.7%</strong></td>
+<td>390</td>
+<td>3.72</td>
+<td><strong>3.90</strong></td>
+<td>3.97</td>
+<td>158</td>
+<td><strong>164</strong></td>
+<td>167</td>
+<td>161</td>
+<td><strong>165</strong></td>
+<td>169</td>
+</tr>
+<tr>
+<td><a href="http://berkeley.edu/"><strong>UC Berkeley</strong></a></td>
+<td>5875</td>
+<td>5272</td>
+<td><strong>27.5%</strong></td>
+<td>692</td>
+<td>3.80</td>
+<td><strong>3.90</strong></td>
+<td>3.96</td>
+<td>160</td>
+<td><strong>164</strong></td>
+<td>168</td>
+<td>163</td>
+<td><strong>166</strong></td>
+<td>169</td>
+</tr>
+<tr>
+<td><a href="http://harvard.edu/"><strong>Harvard</strong></a></td>
+<td>4431</td>
+<td>3771</td>
+<td><strong>28.5%</strong></td>
+<td>406</td>
+<td>3.72</td>
+<td><strong>3.85</strong></td>
+<td>3.95</td>
+<td>163</td>
+<td><strong>166</strong></td>
+<td>168</td>
+<td>163</td>
+<td><strong>167</strong></td>
+<td>170</td>
+</tr>
+<tr>
+<td><a href="http://caltech.edu/"><strong>Caltech</strong></a></td>
+<td>1732</td>
+<td>1466</td>
+<td><strong>34.7%</strong></td>
+<td>313</td>
+<td>3.79</td>
+<td><strong>3.90</strong></td>
+<td>3.97</td>
+<td>159</td>
+<td><strong>164</strong></td>
+<td>168</td>
+<td>165</td>
+<td><strong>168</strong></td>
+<td>170</td>
+</tr>
+<tr>
+<td><a href="http://uchicago.edu/"><strong>UChicago</strong></a></td>
+<td>4787</td>
+<td>3981</td>
+<td><strong>30.6%</strong></td>
+<td>627</td>
+<td>3.73</td>
+<td><strong>3.87</strong></td>
+<td>3.96</td>
+<td>161</td>
+<td><strong>165</strong></td>
+<td>168</td>
+<td>162</td>
+<td><strong>166</strong></td>
+<td>170</td>
+</tr>
+<tr>
+<td><a href="http://penn.edu/"><strong>Penn</strong></a></td>
+<td>4704</td>
+<td>3722</td>
+<td><strong>27.8%</strong></td>
+<td>523</td>
+<td>3.70</td>
+<td><strong>3.86</strong></td>
+<td>3.95</td>
+<td>159</td>
+<td><strong>163</strong></td>
+<td>167</td>
+<td>161</td>
+<td><strong>166</strong></td>
+<td>169</td>
+</tr>
+<tr>
+<td><a href="http://columbia.edu/"><strong>Columbia</strong></a></td>
+<td>5605</td>
+<td>4480</td>
+<td><strong>29.3%</strong></td>
+<td>631</td>
+<td>3.72</td>
+<td><strong>3.85</strong></td>
+<td>3.93</td>
+<td>159</td>
+<td><strong>164</strong></td>
+<td>168</td>
+<td>162</td>
+<td><strong>166</strong></td>
+<td>169</td>
+</tr>
+<tr>
+<td><a href="http://rockefeller.edu/"><strong>Rockefeller</strong></a></td>
+<td>146</td>
+<td>120</td>
+<td><strong>29.2%</strong></td>
+<td>35</td>
+<td>3.74</td>
+<td><strong>3.85</strong></td>
+<td>3.97</td>
+<td>155</td>
+<td><strong>165</strong></td>
+<td>169</td>
+<td>161</td>
+<td><strong>163</strong></td>
+<td>166</td>
+</tr>
+<tr>
+<td><a href="http://cornell.edu/"><strong>Cornell</strong></a></td>
+<td>5550</td>
+<td>4669</td>
+<td><strong>33.3%</strong></td>
+<td>772</td>
+<td>3.71</td>
+<td><strong>3.87</strong></td>
+<td>3.95</td>
+<td>158</td>
+<td><strong>163</strong></td>
+<td>167</td>
+<td>161</td>
+<td><strong>165</strong></td>
+<td>169</td>
+</tr>
+<tr>
+<td><a href="http://cmu.edu/"><strong>CMU</strong></a></td>
+<td>2916</td>
+<td>2388</td>
+<td><strong>32.3%</strong></td>
+<td>439</td>
+<td>3.67</td>
+<td><strong>3.83</strong></td>
+<td>3.94</td>
+<td>157</td>
+<td><strong>161</strong></td>
+<td>166</td>
+<td>164</td>
+<td><strong>168</strong></td>
+<td>170</td>
+</tr>
+<tr>
+<td><a href="http://northwestern.edu/"><strong>Northwestern</strong></a></td>
+<td>4305</td>
+<td>3554</td>
+<td><strong>29.8%</strong></td>
+<td>502</td>
+<td>3.64</td>
+<td><strong>3.83</strong></td>
+<td>3.93</td>
+<td>159</td>
+<td><strong>162</strong></td>
+<td>167</td>
+<td>161</td>
+<td><strong>166</strong></td>
+<td>168</td>
+</tr>
+<tr>
+<td><a href="http://duke.edu/"><strong>Duke</strong></a></td>
+<td>3352</td>
+<td>2679</td>
+<td><strong>27.4%</strong></td>
+<td>383</td>
+<td>3.60</td>
+<td><strong>3.81</strong></td>
+<td>3.94</td>
+<td>158</td>
+<td><strong>162</strong></td>
+<td>167</td>
+<td>163</td>
+<td><strong>166</strong></td>
+<td>169</td>
+</tr>
+<tr>
+<td><a href="http://brown.edu/"><strong>Brown</strong></a></td>
+<td>3080</td>
+<td>2632</td>
+<td><strong>23.4%</strong></td>
+<td>311</td>
+<td>3.60</td>
+<td><strong>3.75</strong></td>
+<td>3.91</td>
+<td>157</td>
+<td><strong>163</strong></td>
+<td>166</td>
+<td>161</td>
+<td><strong>166</strong></td>
+<td>168</td>
+</tr>
+<tr>
+<td><a href="http://ucsf.edu/"><strong>UCSF</strong></a></td>
+<td>698</td>
+<td>501</td>
+<td><strong>23.2%</strong></td>
+<td>151</td>
+<td>3.70</td>
+<td><strong>3.74</strong></td>
+<td>3.90</td>
+<td>159</td>
+<td><strong>165</strong></td>
+<td>168</td>
+<td>158</td>
+<td><strong>163</strong></td>
+<td>166</td>
+</tr>
+<tr>
+<td><a href="http://wustl.edu/"><strong>WUSTL</strong></a></td>
+<td>1815</td>
+<td>1346</td>
+<td><strong>37.1%</strong></td>
+<td>263</td>
+<td>3.61</td>
+<td><strong>3.85</strong></td>
+<td>3.94</td>
+<td>160</td>
+<td><strong>164</strong></td>
+<td>167</td>
+<td>160</td>
+<td><strong>163</strong></td>
+<td>167</td>
+</tr>
+<tr>
+<td><a href="http://nyu.edu/"><strong>NYU</strong></a></td>
+<td>3464</td>
+<td>2580</td>
+<td><strong>30.7%</strong></td>
+<td>306</td>
+<td>3.61</td>
+<td><strong>3.80</strong></td>
+<td>3.94</td>
+<td>160</td>
+<td><strong>163</strong></td>
+<td>167</td>
+<td>161</td>
+<td><strong>164</strong></td>
+<td>167</td>
+</tr>
+<tr>
+<td><a href="http://umich.edu/"><strong>UMich</strong></a></td>
+<td>5595</td>
+<td>4509</td>
+<td><strong>35.4%</strong></td>
+<td>826</td>
+<td>3.68</td>
+<td><strong>3.83</strong></td>
+<td>3.94</td>
+<td>158</td>
+<td><strong>162</strong></td>
+<td>166</td>
+<td>161</td>
+<td><strong>165</strong></td>
+<td>168</td>
+</tr>
+</tbody></table>
+
+<p>Some of the major takeaways from the college level statistics and rankings are:</p>
+
+<ul>
+<li>Aside from the usual suspects, <strong>Rockefeller</strong> and <strong>UCSF</strong> make it on this list as elite medical institutions from the (elite) cities of New York and San Francisco respectively.</li>
+<li>Most top colleges have median Verbal scores in the <strong>160-165</strong> range and Quant scores in the <strong>165-170</strong> range.</li>
+<li>Most median undergraduate GPAs are in the <strong>3.8 - 3.9</strong> range.</li>
+<li>Compared to official sources from <a href="http://web.mit.edu/facts/admission.html"><strong>MIT</strong></a> which report an acceptance rate is about <strong>14.2%</strong> (3,390 of 23,884) for <em>all</em> graduate programs or <a href="https://msande.stanford.edu/admissions/masters/masters-science-admission-statistics"><strong>Stanford</strong></a> which reports a <strong>16-21%</strong> acceptance rate in the last 3 years, these compiled statistics clearly reveal some bias in the data. Acceptances rates here are about 1.5-2x greater than the actual value. This is likely to the several biases we spoke to earlier.</li>
+</ul>
+
+<p>These rankings aren&#39;t very useful given that they aren&#39;t major dependent - splitting it by major makes the data too sparse for most programs. Additionally, they are purely by <strong>selectivity</strong> criteria - GPA, GRE and acceptance rate - not by the quality of research or any other such qualitative metric.</p>
+
+<h1 id="which-majors-are-the-smartest">Which Majors Are The Smartest?</h1>
+
+<p><a href="https://tip.duke.edu/node/960">Jonathan Wai</a>, a research scientist at Duke, has said much about this already in a popular Quartz article entitled <a href="http://qz.com/334926/your-college-major-is-a-pretty-good-indication-of-how-smart-you-are/">Your college major is a pretty good indication of how smart you are</a>. In his article, he looks at the GRE, the SAT, and several other data sources to make his claim. Let&#39;s see where this data sits vis-a-vis it.</p>
+
+<p>If we grab data for all GRE test-takers, straight from ETS, buried in this obscure <a href="https://www.ets.org/s/gre/pdf/gre_guide_table4.pdf">pdf</a>, we already begin to see a picture. Breaking down the data by the seven high-level fields - <strong>Engineering*, **Physical Sciences</strong>, <strong>Business</strong>, <strong>Life Sciences</strong>, <strong>Social Sciences</strong>, <strong>Arts and Humanities</strong>, <strong>Education</strong>, and <strong>Other</strong> tells a story. We observe three major clusters -</p>
+
+<ul>
+<li><strong>Good at math, bad at verbal</strong> Engineering, Physical Sciences</li>
+<li><strong>Bad at math, good at verbal</strong> Arts and Humanities</li>
+<li><strong>Non-verbal non-math related skillsets</strong> Business, Life Sciences, Social Sciences, Education, Other</li>
+</ul>
+
+<p>What&#39;s amazing is that, even when we further break this fields into its constituent majors, aside from a couple of exceptions (notably, Business and Economics), most hover around the original position of the parent. There&#39;s some fairly interesting conclusions we can draw from this split</p>
+
+<ul>
+<li>All <strong>Engineers</strong> are fairly good at math.</li>
+<li><strong>Finance</strong> and <strong>Economics</strong> are fairly math-heavy majors.</li>
+<li><strong>Math</strong> is the best at Quantitative but surprisingly, <strong>Philosophy</strong>, not <strong>English</strong>, is the best at Verbal.</li>
+<li><strong>Computer Science</strong> is the worst at Verbal and <strong>Social Work</strong> the worst at Quant, presumably because the study of each involve little development of the respective skill.</li>
+<li>All things taken into account, <strong>Physics</strong>, <strong>Math</strong>, <strong>Economics</strong> and <strong>Philosophy</strong> majors reign supreme, in that order.</li>
+</ul>
+
+<div class="imgcap">
+  <img src="../assets/grad/gre-all.png">
+  <div class="thecap">
+    A comparison of quantitative and verbal GRE scores for all GRE test takers broken down by field (left) and major (right) as reported by <a target="_blank" href="https://www.ets.org/s/gre/pdf/gre_guide_table4.pdf">ETS</a>
+  </div>
+</div>
+
+<p>The sheer extent to which our data echoes the previous conclusions is <em>absolutely amazing</em>. It turns out that our data says</p>
+
+<ul>
+<li>In GRE aggregate, the top majors we see are Statistics, Math, Pure Math (branches of <strong>Math</strong>), <strong>Economics</strong>, <strong>Physics</strong>, <strong>Philosophy</strong> - the exact same four we identified before. Political Science and International Relations follow closely behind.</li>
+<li>The <strong>Non-verbal non-math related skillsets</strong> majors we identified previously don&#39;t exist in this dataset. Social Sciences moves to &quot;good at verbal&quot;. Life Sciences probably applies to medical school, and doesn&#39;t take the GRE. We don&#39;t see much of Education in this dataset.</li>
+<li>Computer Science and Electrical Engineering still remain the weakest at Verbal, with the additional entry of Mechanical Engineering.</li>
+<li>English replaces Social Work as the poorest in quantitative skills.</li>
+<li>On the GPA front, a variable we hadn&#39;t witnessed previously, the <strong>Arts and pure Sciences</strong> average between <strong>3.75 and 3.8</strong> while <strong>engineers</strong> average between <strong>3.65 and 3.7</strong>. This finally gives those college engineers the license to be a tad grumpier about their grades.</li>
+<li><strong>English</strong> heads up the pack with the highest GPA while <strong>Computer Science</strong> and <strong>Chemistry</strong> trail at the lowest.</li>
+</ul>
+
+<div class="imgcap">
+  <img src="../assets/grad/majors.png">
+  <div class="thecap">
+    A comparison of average undergraduate GPA, GRE Verbal and GRE Quantitative scores for the most popular majors. Most importantly, we see a negative correlation in majors that tend to do well at quantitative skills vs those that do well at verbal skills.
+  </div>
+</div>
+
+<p>If by <em>smartness</em>, we mean possessing strong core skills like quantiative and verbal skills (and not specialized knowledge), it seems that there is overwhelming evidence to support the fact that <strong>Physics</strong>, <strong>Mathematics</strong>, <strong>Economics</strong> and <strong>Philosophy</strong> majors (who did well enough to try an attempt to attend PhD programs) are the smartest majors.</p>
+
+<h1 id="concluding-thoughts">Concluding Thoughts</h1>
+
+<p>Graduate school is the only path to the growth of knowledge of mankind. It&#39;s the channel that begins careers of research and learning. It attracts the brightest minds from all over the world to solve the unsolved problems and discover the undiscovered things. For such an esteemed institution to be so conspicuously devoid of data is startling. This work makes a small step in revealing and analyzing this data. I&#39;ve tried to cover all my bases, but I&#39;m sure there&#39;s plenty more insightful things that can be inferred from the data.</p>
+
+<p>We looked at:</p>
+
+<ul>
+<li>The first, largest, and most detailed dataset of grad school admissions with 350,000 entries, that is thoroughly cleaned and <a href="https://github.com/deedy/gradcafe_data">open</a>.</li>
+<li>Growth, validity, and high level statistics.</li>
+<li>The substantially higher standard of the GRE scores for grad school applicants.</li>
+<li>To what extent graduate school admissions depend purely on the numbers - your GPA and your GRE scores.</li>
+<li>How international students are given more leeway on their verbal score but are still held to largely the same standard as their American counterparts.</li>
+<li>Acceptance rates, percentiles of GPAs and GRE scores for the top 20 colleges, and a purely selectivity and numbers driven ranking.</li>
+<li>The smartest majors by core skills are undeniably Math, Physics, Economics and Philosophy.</li>
+</ul>
+
+<p>Every year, nearly <a href="http://cgsnet.org/ckfinder/userfiles/files/GED_report_2013.pdf"><strong>2 million</strong></a> students apply to graduate school. Perhaps, this will give them a little more to work with than before.</p>
+
+<p>The entire dataset and the very hacky code used to produce these plots are open-sourced on <a href="https://github.com/deedy/gradcafe_data">Github</a></p>
+
+  I love hearing feedback! If you didn't like something, let me know in the comments and feel free reach out to me. If you did, you can <a target="_blank" href="https://twitter.com/intent/tweet?url=http://debarghyadas.com/writes/the-grad-school-statistics-we-never-had/&amp;text=The%20Grad%20School%20Statistics%20We%20Never%20Had&amp;via=debarghya_das">share it with your followers in one click</a> or <a href="https://twitter.com/debarghya_das">follow me on Twitter</a>!
+  </article>
+
+  
+  <div id="mc_embed_signup">
+    <form action="http://debarghyadas.us11.list-manage.com/subscribe/post?u=8427cdf8d636c590551ac65ee&amp;id=dea56830ea" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <div id="mc_embed_signup_scroll" class="row">
+        <div class="mc-field-group input-field col s6">
+          <input type="email" class="validate" placeholder="Email Address" value="" name="EMAIL" required="" aria-required="true" id="mce-EMAIL">
+          <label for="mce-EMAIL" class="active">
+            Do you want to hear about more like this?
+          </label>
+        </div>
+        <div id="mce-responses" class="clear">
+          <div class="response" id="mce-error-response" style="display:none"></div>
+          <div class="response" id="mce-success-response" style="display:none"></div>
+        </div>
+        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+        <div style="position: absolute; left: -5000px;"><input type="text" name="b_8427cdf8d636c590551ac65ee_2cb1da032c" tabindex="-1" value=""></div>
+        <button class="subscribe btn waves-effect waves-light" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe">Subscribe</button>
+        </div>
+    </form>
+  </div>
+
+  <!--End mc_embed_signup-->
+  
+
+  <!-- disqus comments -->
+ 
+ <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'debarghyadas'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  
+
+</div>
+
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  
+    <div class="related-container wrap">
+      <h1 class="related-heading">
+        <span>Recent Posts</span>
+      </h1>
+      <ul class="other posts">
+        
+        
+        
+          
+            
+            <li>
+              <b><a class="post-link" href="../why-are-adults-so-busy/index.html">Why are Adults so busy?</a></b>
+              <span class="post-date">3 months ago • 9 min read</span>
+              As a kid, I'd always wonder what it was about adults that made them so busy. What could they be possibly doing with all their...
+            </li>
+            
+            
+              <div class="separator"></div>
+            
+          
+        
+          
+            
+            <li>
+              <b><a class="post-link" href="../the-50-most-popular-party-spots-in-new-york-city/index.html">The 50 Most Popular Party Spots in New York City</a></b>
+              <span class="post-date">10 months ago • 13 min read</span>
+              It's Friday night. It's been a long week. You just want to unwind. What do you do? Use data. I used the dataset of <a...
+            </li>
+            
+            
+              <div class="separator"></div>
+            
+          
+        
+          
+        
+          
+            
+            <li>
+              <b><a class="post-link" href="../the-top-100-hacker-news-posts-of-all-time/index.html">The Top 100 Hacker News Posts of All Time</a></b>
+              <span class="post-date">11 months ago • 26 min read</span>
+              A list of the top 100 submissions to <a target="_blank" href="https://news.ycombinator.com/news">Hacker News</a> along with short sentence-long descriptions of what they were about. HN has had...
+            </li>
+            
+            
+              
+      </ul>
+      <div class="more-container">
+        <a class="more-button" href="../index.html">More Stories</a>
+      </div>
+    </div>
+  
+
+
+  <div class="wrap">
+
+    <!-- <h2 class="footer-heading">Writes</h2> -->
+
+    <div class="footer-col-1 column">
+      <ul>
+        <li>
+          <a href="../../index.html">
+            <svg version="1.1" id="home" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 306.773 306.773" >
+              <path fill="#C2C2C2" d="M302.93,149.794c5.561-6.116,5.024-15.49-1.199-20.932L164.63,8.898
+                c-6.223-5.442-16.2-5.328-22.292,0.257L4.771,135.258c-6.092,5.585-6.391,14.947-0.662,20.902l3.449,3.592
+                c5.722,5.955,14.971,6.665,20.645,1.581l10.281-9.207v134.792c0,8.27,6.701,14.965,14.965,14.965h53.624
+                c8.264,0,14.965-6.695,14.965-14.965v-94.3h68.398v94.3c-0.119,8.264,5.794,14.959,14.058,14.959h56.828
+                c8.264,0,14.965-6.695,14.965-14.965V154.024c0,0,2.84,2.488,6.343,5.567c3.497,3.073,10.842,0.609,16.403-5.513L302.93,149.794z"
+                />
+            </svg>
+            <span class="username">home</span>
+          </a>
+        </li>
+        <li>
+          <a href="../../reads.html">
+            <svg version="1.1" id="reads" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+               width="16px" height="16px" viewBox="0 0 50 50">
+              <path fill="#C2C2C2" d="M48.336,7.54c-0.701,0-1.359,0.007-2.018,0.024V5.326h-0.734c-14.262,0-19.043,3.411-20.585,5.252
+                c-1.542-1.841-6.323-5.252-20.585-5.252H3.68v2.237C3.022,7.545,2.364,7.54,1.664,7.54H0V39.89h1.664
+                c17.595,0,21.186,4.035,21.698,4.784h3.302c0.557-0.784,4.218-4.784,21.673-4.784H50V7.54H48.336z M23.899,38.431
+                c-2.457-1.812-7.611-3.914-18.383-4.054V7.175c15.087,0.194,18.001,4.327,18.383,5V38.431z M44.484,34.377
+                c-10.772,0.14-15.926,2.24-18.383,4.054V12.184c0.416-0.737,3.412-4.814,18.383-5.007V34.377z"/>
+            </svg>
+            <span class="username">/reads</span>
+          </a>
+        </li>
+        <li>
+          <a href="../index.html">
+            <svg version="1.1" id="writes" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+               width="16px" height="16px" viewBox="0 0 35.738 35.738" >
+              <path fill="#C2C2C2" d="M0,35.667c0,0,11.596-37.07,35.738-35.55c0,0-2.994,4.849-10.551,6.416c0,0,3.518,0.429,6.369-0.522
+                c0,0-1.711,5.515-11.025,6.273c0,0,5.133,1.331,7.414,0.57c0,0-0.619,4.111-10.102,6.154c-0.562,0.12-4.347,1.067-1.306,1.448
+                c0,0,4.371,0.763,5.514,0.381c0,0-3.744,5.607-12.928,5.132c-0.903-0.047-1.332,0-1.332,0L0,35.667z"/>
+            </svg>
+            <span class="username">/writes</span>
+          </a>
+        </li>
+        <li>
+          <a href="feed:http://debarghyadas.com/writes/feed.xml" type="application/rss+xml" rel="alternate" title="Deedy's RSS Feed">
+            <span class="icon rss">
+              <svg version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                 width="16px" height="16px" viewBox="0 0 100 100">
+              <path id="RSS" fill="#C2C2C2" d="M25.4,74.569c2.18,2.177,3.506,5.131,3.514,8.42c-0.008,3.283-1.334,6.237-3.506,8.406L25.4,91.399
+                c-2.176,2.166-5.148,3.49-8.453,3.49c-3.301,0-6.266-1.328-8.441-3.494C6.336,89.227,5,86.276,5,82.989
+                c0-3.289,1.336-6.25,3.506-8.423v0.003c2.176-2.168,5.141-3.502,8.441-3.502C20.252,71.067,23.221,72.404,25.4,74.569z M25.4,74.566
+                v0.003c0.004,0,0.004,0,0.004,0L25.4,74.566z M8.506,91.399c0,0,0,0,0-0.004c-0.004,0-0.004,0-0.004,0L8.506,91.399z M5.01,35.604
+                v17.185c11.219,0.007,21.83,4.414,29.771,12.367c7.939,7.928,12.328,18.555,12.346,29.813h0.006V95h17.256
+                c-0.014-16.37-6.668-31.198-17.426-41.964C36.203,42.272,21.381,35.614,5.01,35.604z M5.041,5v17.177
+                C45.145,22.206,77.746,54.858,77.773,95H95c-0.012-24.81-10.096-47.288-26.393-63.596C52.305,15.101,29.842,5.011,5.041,5z"/>
+              </svg>
+            </span>
+            <span class="username">Subscribe</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-col-2 column">
+      <ul>
+        <li>
+          <a href="https://github.com/deedy">
+            <span class="icon github">
+              <svg version="1.1" class="github-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+                <path fill-rule="evenodd" clip-rule="evenodd" fill="#C2C2C2" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761
+                c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32
+                c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472
+                c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037
+                C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65
+                c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261
+                c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082
+                c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129
+                c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+              </svg>
+            </span>
+            <span class="username">deedy</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/debarghya_das">
+            <span class="icon twitter">
+              <svg version="1.1" class="twitter-icon-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+                <path fill="#C2C2C2" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809
+                c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27
+                c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767
+                c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206
+                C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271
+                c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469
+                c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/>
+              </svg>
+            </span>
+            <span class="username">debarghya_das</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://facebook.com/dd">
+            <span class="icon facebook">
+              <svg version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 width="16px" height="16px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+              <path id="facebook" fill="#C2C2C2" d="M38.078,22.431c0,2.268,0,12.391,0,12.391H29v15.152h9.078V95h18.649V49.975h12.513
+                c0,0,1.172-7.265,1.74-15.209c-1.629,0-14.183,0-14.183,0s0-8.815,0-10.36c0-1.548,2.033-3.631,4.043-3.631c2.006,0,6.239,0,10.16,0
+                c0-2.063,0-9.191,0-15.774c-5.235,0-11.189,0-13.814,0C37.617,5,38.078,20.167,38.078,22.431z"/>
+              </svg>
+
+            </span>
+            <span class="username">dd</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://linkedin.com/in/debarghyadas">
+            <span class="icon linkedin">
+              <svg version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 width="16px" height="16px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+              <path id="linkedin" fill="#C2C2C2" d="M95,59.727V93H75.71V61.955c0-7.799-2.79-13.121-9.773-13.121c-5.33,0-8.502,3.587-9.897,7.056
+                c-0.509,1.241-0.64,2.967-0.64,4.704V93H36.104c0,0,0.26-52.58,0-58.028h19.295v8.225c-0.039,0.062-0.09,0.128-0.127,0.188h0.127
+                v-0.188c2.563-3.948,7.141-9.588,17.388-9.588C85.483,33.609,95,41.903,95,59.727z M15.919,7C9.318,7,5,11.33,5,17.024
+                c0,5.57,4.193,10.031,10.663,10.031h0.129c6.729,0,10.914-4.46,10.914-10.031C26.579,11.33,22.521,7,15.919,7z M6.146,93h19.289
+                V34.972H6.146V93z"/>
+              </svg>
+            </span>
+            <span class="username">debarghyadas</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-col-3 column">
+      <ul>
+        <li>
+          <a href="https://news.ycombinator.com/user?id=dd367">
+            <span class="icon hackernews">
+              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 width="16px" height="16px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+              <path id="Hacker_News" fill="#C2C2C2" d="M5,5v90h90V5H5z M54,56.928V79h-8V56.928L26.34,18h9.262l14.378,29.309L64.93,18h8.683L54,56.928z"/>
+              </svg>
+            </span>
+            <span class="username">dd367</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.quora.com/profile/Debarghya-Das">
+            <span class="icon quora">
+              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 width="16px" height="16px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+              <path id="Quora" fill="#C2C2C2" d="M71.018,77.767C82.41,70.621,90.002,57.846,90.002,43.27c0-22.393-17.91-40.547-40.002-40.547
+                S10.002,20.877,10.002,43.27c0,22.395,17.906,40.547,39.998,40.547c3.25,0,6.406-0.402,9.43-1.145
+                c3.797,6.908,9.582,11.797,21.861,9.46v-6.873C81.291,85.259,73.416,83.279,71.018,77.767z M70.738,48.631
+                c0,6.77-2.154,12.914-5.654,17.453c-4.396-4.68-11.287-8.527-20.031-8.037v0.822v7.147c0,0,5.932,0.235,9.992,7.213
+                c-1.521,0.447-3.105,0.69-4.738,0.69c-11.285,0-20.429-11.321-20.429-25.289c0-1.792,0-8.654,0-10.447
+                c0-13.967,9.144-25.289,20.429-25.289s20.432,11.322,20.432,25.289C70.738,39.977,70.738,46.839,70.738,48.631z"/>
+              </svg>
+            </span>
+            <span class="username">Debarghya-Das</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/c/DebarghyaDas1">
+            <span class="icon youtube">
+              <svg version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 width="16px" height="16px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+              <path id="YouTube__x28_alt_x29_" fill="#C2C2C2"  style="fill-rule:evenodd;clip-rule:evenodd;" d="M95,32.458C95,25.025,88.979,19,81.55,19h-63.1
+                C11.021,19,5,25.025,5,32.458v36.084C5,75.975,11.021,82,18.45,82h63.1C88.979,82,95,75.975,95,68.542V32.458z M41,65.724V31.83
+                l25.702,16.947L41,65.724z"/>
+              </svg>
+            </span>
+            <span class="username">DebarghyaDas1</span>
+          </li>
+          <li>
+          <a href="https://www.google.com/maps/place/New York">
+            <span class="icon location">
+              <svg version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 width="16px" height="16px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+              <path id="Facebook_Places" fill="#C2C2C2"  d="M79.535,27.4c-0.32-1.201-0.971-2.48-1.452-3.6C72.324,9.96,59.741,5,49.581,5
+                C35.98,5,21,14.12,19,32.919v3.841c0,0.16,0.055,1.6,0.134,2.32c1.121,8.959,8.19,18.48,13.47,27.439
+                c5.68,9.599,11.574,19.041,17.414,28.48c3.6-6.159,7.188-12.399,10.706-18.4c0.96-1.76,2.073-3.52,3.033-5.2
+                c0.64-1.119,1.862-2.239,2.421-3.28C71.857,57.72,81,47.24,81,36.92v-4.24C81,31.561,79.614,27.641,79.535,27.4z M49.83,46.68
+                c-3.998,0-8.374-1.999-10.534-7.52C38.974,38.281,39,36.52,39,36.359v-2.48c0-7.038,5.976-10.239,11.175-10.239
+                c6.4,0,11.351,5.121,11.351,11.521C61.525,41.561,56.23,46.68,49.83,46.68z"/>
+              </svg>
+            </span>
+            <span class="username">New York</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+</footer>
+
+
+    </body>
+
+<!-- Mirrored from debarghyadas.com/writes/the-grad-school-statistics-we-never-had/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Nov 2016 09:08:00 GMT -->
+</html>

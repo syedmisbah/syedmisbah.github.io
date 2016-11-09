@@ -1,0 +1,117 @@
+<html>
+  
+<!-- Mirrored from debarghyadas.com/projects/myflix/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Nov 2016 09:04:49 GMT -->
+<head>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="spin.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="search2.css">
+
+
+  <script src='../../google_analytics_auto.js'></script></head>
+  <body>
+    <div id="logo" class="fade-in"><img src="logo.png"></img></div>
+    <div id="search">
+        <form method="get" action="#" id="box">
+            <input type="text" formaction="#" autocomplete="off" id="q" name="q" size="40" placeholder="Search by Movie Name"/>
+        </form>
+
+       <div id="results"></div>
+    </div>
+    <script type="text/javascript">
+
+
+var apikey = "bsccd72we7wjjzxs57qktz5x";
+var baseUrl = "http://api.rottentomatoes.com/api/public/v1.0";
+
+// construct the uri with our apikey
+var moviesSearchUrl = baseUrl + '/movies.json?apikey=' + apikey;
+
+  var runningRequest = false;
+    var request;
+   //Identify the typing action
+    $('input#q').keyup(function(e){
+      if (e.keyCode ==13) {
+        console.log('wtf');
+        e.preventDefault();
+    }
+        var $q = $(this);
+        var search = document.getElementById('q');
+
+        search.style.top=($q.val().length==0)?'50%':'15%';
+        var logo = document.getElementById('logo');
+        logo.className=($q.val().length==0)?'fade-in':'fade-out';
+      
+
+        //Abort opened requests to speed it up
+        if(runningRequest){
+            request.abort();
+        }
+        if (!runningRequest) {
+
+        $('div#results').html('');
+          var opts = {
+  lines: 13, // The number of lines to draw
+  length: 14, // The length of each line
+  width: 8, // The line thickness
+  radius: 20, // The radius of the inner circle
+  corners: 1, // Corner roundness (0..1)
+  rotate: 0, // The rotation offset
+  color: '#000', // #rgb or #rrggbb
+  speed: 1, // Rounds per second
+  trail: 60, // Afterglow percentage
+  shadow: false, // Whether to render a shadow
+  hwaccel: false, // Whether to use hardware acceleration
+  className: 'spinner', // The CSS class to assign to the spinner
+  zIndex: 2e9, // The z-index (defaults to 2000000000)
+  top: '50px', // Top position relative to parent in px
+  left: '250px' // Left position relative to parent in px
+};
+var target = document.getElementById('results');
+var spinner = new Spinner(opts).spin(target);
+        }
+        runningRequest=true;
+        request = $.ajax({
+    url: moviesSearchUrl + '&q=' + encodeURI($q.val()),
+    dataType: "jsonp",
+    success: function(data){           
+            searchCallback(data,$q.val());
+            runningRequest=false;
+            spinner.stop();
+        }
+  });
+
+// callback for when we get back the results
+function searchCallback(data,query) {
+  $('div#results').html('');
+  if (data.total===undefined) {
+    return;
+  }
+ $('div#results').append('<div id="searchhead">'+data.total + ' results</div>');
+ var movies = data.movies;
+ $('div#results'  ).append('<ul>');
+ $.each(movies, function(index, movie) {
+  var critics=movie.ratings.critics_score==-1?'-':movie.ratings.critics_score;
+   $('div#results'  ).append('<li class=\'entry\'><div id='+index+'><div id="heading"><a href="javascript:expand(\''+index+'\');"><div id="name"><div id="title">' + movie.title + '</div><div id="year" class="unsubstantial">'+movie.year+'</div></div><div id="rating"><div id="user">'+movie.ratings.audience_score+'</div><div id="critics">'+critics+'</div></div></a></div><div id=\'details\' class=\'detailshidd\'><div id="thumbnail"><img src="'+movie.posters.detailed+'"></img></div><div id="syn">'+movie.synopsis+'</div></div></div></li>');
+  // $(document.body).append('<img src="' + movie.posters.thumbnail + '" />');
+ });
+ $('div#results'  ).append('</ul>');
+}
+
+    });
+function expand(ind) {
+
+  var item = document.getElementById(ind);
+  if (item.length==0) {
+    alert("Couldn't find Index in list");
+  }
+ 
+  var details = item.lastChild;
+  var heading = item.firstChild;
+    heading.style.height=(heading.style.height!='60px')?'60px':'auto';
+ details.className=(details.className=='detailshidd')?'detailsshow':'detailshidd';
+}
+    </script>
+  </body>
+
+<!-- Mirrored from debarghyadas.com/projects/myflix/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Nov 2016 09:04:51 GMT -->
+</html>

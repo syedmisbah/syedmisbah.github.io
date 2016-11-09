@@ -1,0 +1,48 @@
+.logo-side {
+    position: absolute;
+    bottom: 50px;
+    right: 0;
+    opacity: 0.7;
+}
+
+.logo-1 {
+    width: 200px;
+    margin-left: 50px;
+}
+
+.logo-2 {
+    width: 300px;
+}
+
+.vert-text {
+    color: #ffffff;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.link:hover {
+    color: #333;
+}
+
+.link {
+    color: #ccc;
+}
+
+.dp {
+    height: 150px;
+    width: 150px;
+    border-radius: 100%;
+    border: 3px solid #ccc;
+}
+
+.heading-contribs {
+    top: 20px;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: #fefefe;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+    font-size: 100px;
+    font-weight: 100;
+}

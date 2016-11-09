@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from debarghyadas.com/projects/captor/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Nov 2016 09:11:17 GMT -->
+<head>
+    <meta charset="utf-8">
+    <title>Captor &raquo; a YouTube captioning service</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Captor &raquo; a YouTube captioning service" />
+
+    <meta name="description" content="Captor is a YouTube captioning service that combines minimalism with intuitiveness to allow quick hassle-free caption creation."/>
+
+    <meta property="og:description" content="Captor is a YouTube captioning service that combines minimalism with intuitiveness to allow quick hassle-free caption creation." />
+
+    <meta property="og:type" content="article" />
+
+    <meta name="author" content="Debarghya Das">
+    <meta property="article:author" content="../../index.html" />
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/layout.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../index.html">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../index.html">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../index.html">
+                    <link rel="apple-touch-icon-precomposed" href="../../index.html">
+                                   <link rel="shortcut icon" href="../../index.html">
+
+
+    <script type="text/javascript" src="js/swfobject.js"></script> 
+  <script src='../../google_analytics_auto.js'></script></head>
+
+  <body>
+    <div id="entryModal" class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Welcome to Captor!</h3>
+  </div>
+  <div class="modal-body">
+    <p><b>Captions</b> help deaf and hard-of-hearing individuals to enjoy your video just as much as you do. Captions let people who speak different languages understand what is going on in a video. YouTube uses Google's translation tool to automatically translate uploaded captions into 60 different languages.
+</p>
+<p class="lead">Instructions</p>
+<ul>
+  <li><b>Click</b> on the text area to the right to begin playback</li>
+  <li>When something is said in the video, <b> begin typing it in</b></li>
+  <li><b>Playback pauses</b> as you type.</li>
+    <li>To continue a sentence, <b>pause typing</b> to resume playback.</li>
+    <li>If you've missed something, <b>press rewind</b> and jump back 5 seconds.</li>
+    <li><b>Press enter</b> when you've finished a sentence</li>
+</ul>
+<p class="lead">Shortcuts</p>
+<ul>
+  <li>Press <b>double space</b> while typing to pause.</li>
+  <li>Press <b>double left</b> while typing to rewind.</b></li>
+</ul>
+  </div>
+  <div class="modal-footer">
+    <a data-dismiss="modal" aria-hidden="true" class="btn btn-primary">Begin Captioning</a>
+  </div>
+</div>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="../../index.html">Debarghya Das</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="index-2.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="../../index.html#contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Part 1: Wrap all page content here -->
+    <div id="wrap">
+
+      <!-- Begin page content -->
+      <div class="container">
+        <div class="page-header">
+          <div class="pull-right"><a href="#entryModal" role="button" class="btn btn-large btn-primary" data-toggle="modal">Instructions</a></div>
+          <h1>&#9873; Captor</h1>
+        </div>
+        <p class="lead">Captor is a YouTube captioning service that combines minimalism with intuitiveness to allow quick hassle-free caption creation.</p>
+        <div id="playercont" class="span7">
+        <div id="ytplayer">
+          You need Flash player 8+ and JavaScript enabled to view this video.
+
+        </div>
+        <div id="loadControls" class="control-group">
+  <div class="controls">
+    <div class="input-prepend input-append">
+      <span class="add-on"><i class="icon-plus"></i></span>
+      <input class="span2" id="videoId" type="text" placeholder="YouTube Video ID">
+      <button class="btn" id="loadButton" type="button" onclick="loadVideo($('#videoId').val())">Load</button>
+    </div>
+  </div>
+</div>
+      </div>
+        <div class="span4">
+          <div id="caption" class="well captionarea">
+          </div>
+          <textarea id="inputMessage" class="filler"placeholder="Enter in what's being said in the video here ..." rows="5" name="inputMessage"></textarea>
+          <div id="playbackDialog" class="hide"> Playing back at <span id="currSpeed"><b> x1 </b></span></div>
+          <div class="btn-toolbar">
+            <div class="btn-group">
+              <button class="btn btn-danger btn-large" onclick="rewind()"><i class="icon-backward icon-white"></i></button>
+            </div>
+            <div class="btn-group">
+              <button class="btn btn-danger btn-large" onclick="pause()"><i id="pauseIcon" class="icon-play icon-white"></i></button>
+            </div>
+            <div id="speedbuttons" class="btn-group" data-toggle="buttons-radio">
+            <button class="btn btn-primary" onclick="changeSpeed(0.25)" type="button">x0.25</button>
+            <button class="btn btn-primary" onclick="changeSpeed(0.5)" type="button">x0.5</button>
+            <button class="btn btn-primary" onclick="changeSpeed(1)" type="button">x1</button>
+            <button class="btn btn-primary" onclick="changeSpeed(1.5)" type="button">x1.5</button>
+            <button class="btn btn-primary" onclick="changeSpeed(2)" type="button">x2</button>
+          </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="push"></div>
+    </div>
+
+    <hr>
+    <div class="span12">
+      <div class="span4">
+        <p class="lead"><b>Start typing</b> to pause playback</p>
+      </div>
+      <div class="span3">
+        <p class="lead"><b>Stop typing</b> to play video</p>
+      </div>
+      <div class="span4">
+        <p class="lead"><b>Press enter often</b> and resume video</p>
+      </div>
+    </div>
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">Created by <a href="../../index.html">Debarghya Das</a>.</p>
+      </div>
+    </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    // 1. Stop clicking on Youtube window
+    // 2. Save all the entered data.
+    // 3. Put in a pause button.
+    // 4. Process the data to group things
+    // 5. Export as a sbv file
+    // 6. Test different Speeds (?Different speed playback only works on html5)
+    // 7. Youtube API for HTML5 
+    // 8. Supplying and selecting video to caption
+    // 9. MTurk
+    function loadVideo(videoid) {
+      console.log(videoid);
+      var fetchsuccess=false;
+      $.ajax({
+        url: "http://gdata.youtube.com/feeds/api/videos/"+videoid+"?v=2&alt=json-in-script",
+        dataType: "jsonp",
+        contentType: "application/json; charset=utf-8",
+        success: function () { 
+          $('#loadControls').removeClass('error').addClass('success');
+          $('#loadButton').removeClass('btn-danger').addClass('btn-success');
+          fetchsuccess=true; 
+          ytplayer.loadVideoById(videoid,0,'default');
+          ytplayer.pauseVideo();
+        }
+      });
+      setTimeout(function(){ 
+        if(!fetchsuccess) { 
+          $('#loadControls').removeClass('success').addClass('error');
+          $('#loadButton').removeClass('btn-success').addClass('btn-danger');
+        }
+    }, 2000); 
+    }
+
+    function createCookie(name,value,days) {
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime()+(days*24*60*60*1000));
+        var expires = "; expires="+date.toGMTString();
+    }
+    else var expires = "";
+    document.cookie = name+"="+value+expires+"; path=/";
+}
+
+function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+function eraseCookie(name) {
+    createCookie(name,"",-1);
+}
+    $(document).ready(function() {
+      
+      if (readCookie('CaptorYouTubeCaptions')==null) {
+        $('#entryModal').modal({'keyboard':'true'});
+        createCookie('CaptorYouTubeCaptions','visited',1000);
+      }
+
+    });
+
+     var ytplayer = null;
+    function onYouTubePlayerReady(playerid) {
+      ytplayer=document.getElementById("myytplayer");
+      ytplayer.addEventListener('onStateChange', 'onStateChanger');
+      ytplayer.addEventListener('onPlaybackRateChange', 'onPlaybackRateChanger');
+      if (ytplayer.getAvailablePlaybackRates().length==1) {
+        $('#speedbuttons').children().addClass('disabled');
+      }
+      else {
+        $('#playbackDialog').removeClass('hide');
+      }
+      ytplayer.setVolume(100);
+      if (ytplayer.getPlayerState()==1) {
+      $('#pauseIcon').removeClass('icon-pause icon-play').addClass('icon-pause');
+      }
+      else {
+        $('#pauseIcon').removeClass('icon-pause icon-play').addClass('icon-play');
+      }
+    }
+ 
+    function onPlaybackRateChanger(newrate) {
+      $('#currSpeed').html('<b>x'+newrate+'</b>');
+    } 
+    function changeSpeed(newspeed) {
+      if (ytplayer==null) {
+        return;
+      }
+      if (ytplayer.getPlaybackRate()!=newspeed) {
+        ytplayer.setPlaybackRate(newspeed);
+      }
+    }
+
+
+    var videoid ='ClYdw4d4OmA';//8rwsuXHA7RA';
+    var url = "http://www.youtube.com/v/"+videoid+"?enablejsapi=1&modestbranding=1&rel=0&showinfo=0&autohide=0&iv_load_policy=3&theme=light&version=3&playerapiid=ytplayer";
+    var params = { allowScriptAccess: "always" };
+    var atts = { id: "myytplayer" };
+    swfobject.embedSWF(url,"ytplayer", "640", "360", "8", null, null, params, atts);
+
+
+    function play () {
+      if (ytplayer==null) {
+        return;
+      }
+      if (ytplayer.getPlayerState()!=1) {
+          ytplayer.playVideo();
+      }
+    }
+    var lastChar=null;
+    var ytTimeStamp=null;
+    var pauseTime=null;
+      function isKeyChar(k) {
+    if (k==null) {
+      return false;
+    }
+    if (k>=65 & k<=90) {
+      return true;
+      }
+      else {
+        return false;
+      }
+   }
+  
+    $('#inputMessage').focus(function (){
+      if (pauseTime==null) 
+        pauseTime=setTimeout(play,100);
+    });
+    $('#inputMessage').keyup(function(e) {
+
+      if (ytTimeStamp==null) {
+        ytTimeStamp=ytplayer.getCurrentTime();
+      }
+      console.log(e.which);
+      // var content = $('textarea[name=inputMessage]').val().split(" ");
+      // console.log(content.length);
+      // if (content.length>1) {
+      //   var caption=timeStamp+","+ytplayer.getCurrentTime()+"<br>"+content[0]+"<br><br>";
+      //   $("#caption").append(caption);
+      //   $('textarea[name=inputMessage]').val(content[1]);
+      //   timeStamp=ytplayer.getCurrentTime();
+      // }
+      // console.log(content);
+      //Play if spacebar
+
+      if (e.which==13)
+      {
+        if (ytplayer.getPlayerState()==1) {
+        } else {
+          ytplayer.playVideo();
+        }
+        var content = $('textarea[name=inputMessage]').val();
+        var caption=ytTimeStamp+","+ytplayer.getCurrentTime()+"<br>"+content+"<br><br>";
+        $("#caption").append(caption);
+        $('#caption').scrollTop($('#caption')[0].scrollHeight);
+
+        $('textarea[name=inputMessage]').val("");
+        ytTimeStamp=ytplayer.getCurrentTime();
+      }
+      //Pause if character 
+      if (isKeyChar(e.which)) {
+        if (ytplayer.getPlayerState()==1) {
+          ytplayer.pauseVideo();
+        }
+      }
+      
+      
+      clearTimeout(pauseTime);
+      pauseTime=setTimeout(play,1000);
+      if (e.which==37 && lastChar==37)  {
+        rewind();
+      }
+      if (e.which==32 && lastChar==32) {
+        if (ytplayer.getPlayerState()!=2) {
+          clearTimeout(pauseTime);
+          ytplayer.pauseVideo();
+          var content = $('textarea[name=inputMessage]').val();
+          content=content.substring(0,content.length-2);
+          $('textarea[name=inputMessage]').val(content);
+        }
+      }
+      lastChar = e.which;
+    })
+
+      function rewind() {
+        if (ytplayer==null) {
+          return;
+        }
+        ytplayer.seekTo(Math.max(ytplayer.getCurrentTime()-5,0));
+        $('#inputMessage').focus();
+      }
+      function pause() {
+        if (ytplayer==null) {
+          return;
+        }
+        if ($('#pauseIcon').hasClass('icon-pause')) {
+          clearTimeout(pauseTime);
+          ytplayer.pauseVideo();
+        }
+        else if ($('#pauseIcon').hasClass('icon-play')) {
+          pauseTime=setTimeout(play,4000);
+          ytplayer.playVideo();
+        }
+
+      }
+      function onStateChanger(newstate) {
+        if (newstate==1) {  
+          $('#pauseIcon').removeClass('icon-play').addClass('icon-pause');
+        } else {
+          $('#pauseIcon').removeClass('icon-pause').addClass('icon-play');
+        }
+      }
+
+    </script>
+
+  </body>
+
+<!-- Mirrored from debarghyadas.com/projects/captor/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Nov 2016 09:11:20 GMT -->
+</html>

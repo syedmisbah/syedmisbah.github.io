@@ -1,0 +1,119 @@
+
+.subtextual {
+    opacity: 0.5;
+
+}
+
+.logo-1 {
+    width: 600px;
+}
+
+.logo-2 {
+    width: 300px;
+}
+
+
+
+.icon-list-ele {
+    width: 100px;
+}
+
+
+.vert-text {
+    color: #ffffff;
+    display: table-cell;
+    text-align: center;
+}
+
+.icon {
+    color: #fefefe;
+    opacity: 0.5;
+}
+
+.icon:hover {
+    color: #fefefe;
+    opacity: 0.8;
+}
+
+.big-party-icon {
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+    border: 3px solid #333;
+}
+
+.party-icon {
+    height: 120px;
+    width: 120px;
+    border-radius: 100%;
+    border: 3px solid #333;
+}
+
+
+
+
+
+
+
+
+
+
+
+section {
+    padding-top:50px;
+    padding-bottom:50px;
+    /*min-height:calc(100% - 1px);*/
+}
+
+.v-center {
+    padding-top:10%;
+    font-size:70px;
+}
+
+.well {
+    border-color:transparent;
+}
+
+#section1 {
+}
+
+#section2 {
+}
+
+#section3 {
+}
+
+#section4 {
+}
+
+#section5 {
+}
+
+#section6 {
+}
+
+
+.callout {
+  color: #ffffff;
+  display: table;
+  height: 400px;
+  width: 100%;
+}
+
+.callout.parties {
+  background: url(../img/parties-blur.jpg);
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
+background-color: #333;
+border-color: #fff;
+}
+
+
+

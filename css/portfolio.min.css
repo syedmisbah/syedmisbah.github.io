@@ -42,6 +42,10 @@ body {
     margin-top: -60px;
     border: 3px solid #fff
 }
+
+
+
+
 .audio-clip {
     color: #fff;
     opacity: .6
@@ -155,13 +159,18 @@ body {
     position: absolute
 }
 .header {
+	background-image:url(../img/bg.jpg);
+	background-repeat:no-repeat;
     display: table;
     height: 100%;
-    width: 100%;
-    position: relative
+	width:inherit;
+    position: relative;
 }
+
+
+
 .img-src {
-	background-image: url('../img/bga.jpg');
+	background-image: url('../img/bg.jpg'); 
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -174,6 +183,7 @@ body {
 	background-size: cover;
 	background-color: #2E2B55
 }
+
 		
 .scroll-img {
     opacity: 100;
@@ -181,8 +191,10 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background-image: url('../img/bga.jpg')
+    background-image: url('../img/bg.jpg')
 }
+
+
 
 .intro,
 .fame,

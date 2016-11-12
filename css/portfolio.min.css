@@ -4,6 +4,7 @@
 }
 html,
 body {
+	
     height: 100%;
     width: 100%
 }
@@ -160,13 +161,12 @@ body {
     position: relative
 }
 .img-src {
-	background-image: url(../img/bg.jpg);
+	background-image: url('../img/bga.jpg');
 	position: absolute;
 	top: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background-attachment: scroll;
 	background-repeat: no-repeat;
 	background-position: center center;
 	-moz-background-size: cover;
@@ -174,15 +174,16 @@ body {
 	background-size: cover;
 	background-color: #2E2B55
 }
-	
+		
 .scroll-img {
     opacity: 100;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background-image: url('../img/bg.jpg')
+    background-image: url('../img/bga.jpg')
 }
+
 .intro,
 .fame,
 .work,

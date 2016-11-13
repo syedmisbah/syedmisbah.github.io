@@ -1,3 +1,5 @@
+
+
 @font-face {
     font-family: MyHelveticaNeue;
     src: url(../index.html) format("truetype")
@@ -8,7 +10,6 @@ body {
     height: 100%;
     width: 100%
 }
-
 
 
 .vert-text {

@@ -161,8 +161,7 @@ body {
     position: absolute
 }
 .header {
-	background-image:url(../img/bg.jpg);
-	background-repeat:no-repeat;
+	
     display: table;
     height: 100%;
 	width:inherit;

@@ -292,6 +292,16 @@ i.work-icon {
     background-repeat: no-repeat;
     background-position: center center
 }
+.callout.lib {
+    background: url(../img/code-blur.jpg);
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center
+}
 .callout.research {
     background: url(../img/research-blur.jpg);
     background-attachment: fixed;

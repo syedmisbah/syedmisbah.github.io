@@ -219,7 +219,7 @@ body {
 }
 .work,
 .about,
-.research {
+.thingsido {
     background: #383838;
     padding: 50px 0;
     color: #fff
@@ -316,8 +316,8 @@ i.work-icon {
     background-repeat: no-repeat;
     background-position: center center
 }
-.callout.research {
-    background: url(../img/research-blur.jpg);
+.callout.thingsido {
+    background: url(../img/thingsido-blur.jpg);
     background-attachment: fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -346,11 +346,19 @@ i.work-icon {
     background-position: center center
 }
 .projects {
-    padding: 50px 0
+    padding: 50px;
+		
 }
 .projects-item {
-    margin-bottom: 25px
+    margin-bottom: 25px;
+		
 }
+
+.projects-itemjust {
+    margin-bottom: 25px;
+		text-align: justify;
+}
+
 .projects-icon {
     margin: 0 auto;
     border: 3px solid #383838;
@@ -363,10 +371,10 @@ i.work-icon {
     vertical-align: middle;
     text-align: center
 }
-.research-item {
+.thingsido-item {
     margin-bottom: 25px
 }
-.research-icon {
+.thingsido-icon {
     margin: 0 auto;
     border: 3px solid #eee;
     border-radius: 50%;

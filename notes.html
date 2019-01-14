@@ -1,0 +1,984 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+     <head>
+<!-- <style>
+div.ex1 {
+    width:500px;
+    margin: auto;
+    
+}
+
+div.ex2 {
+    max-width:500px;
+    margin: auto;
+    
+}
+</style>     
+      -->
+     
+     
+     
+      <title>Syed Misbah</title>
+      <meta charset="utf-8"/>
+    
+      <meta property="og:title" content="Where the knowledge is"/>
+      <meta name="description" content="There's a lot of knowledge and content everywhere, but it's really hard to find quality stuff that interests you. I thought I'd maintain an eclectic set of content that I read and watch regularly or have been immensely moved or educated by. The list is a constant work in progress."/>
+      <meta property="og:description" content="There's a lot of knowledge and content everywhere, but it's really hard to find quality stuff that interests you. I thought I'd maintain an eclectic set of content that I read and watch regularly or have been immensely moved or educated by. The list is a constant work in progress."/>
+      <meta property="og:type" content="article"/>
+      <meta property="og:image" content="./img/preview.png"/>
+      <meta name="author" content="Syed Misbah">
+ 
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta property="og:url" content="./index.html"/>
+      <link rel="image_src" href="./img/preview.png">
+      <link rel="shortcut icon" href="./img/favicon/favicon.png" type="image/png">
+     
+      <link rel="canonical" href="./index.html"/>
+      <link async href="./css/bootstrap.min.css" rel="stylesheet">
+      <link async href="./css/portfolio.min.css" rel="stylesheet">
+      <link async href="./font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    
+      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="./img/favicon/favicon144.png">
+      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="./img/favicon/favicon114.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="./img/favicon/favicon72.png">
+      <link rel="apple-touch-icon-precomposed" href="./img/favicon/favicon57.png">
+    
+   <body id="page" oncontextmenu="return false">
+      <div id="fb-root"></div>
+      <a id="menu-toggle" href="#" class="btn btn-lg toggle"><i class="fa fa-bars"></i></a> 
+      <div id="sidebar-wrapper">
+         <ul class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-default btn-lg pull-right toggle toggle-override"><i class="fa fa-times"></i></a> 
+            <li class="sidebar-brand"><a href="./index.html">Syed Misbah</a> </li>
+            <li><a href="./index.html"><b>Back to Main Page</b></a> </li>
+            <li><a href="#intro"><b>Back to top</b></a> </li>
+            
+            
+         </ul>
+      </div>
+
+      <div id="reads-header" class="callout qp">
+         <div class="vert-text">
+            <h1>Data Science Interviews</h1>
+            <p class="lead">Questions and areas to focus on</p>  <br>
+            <br>
+            <p class="lead">Collated from multiple sources - own experiences, friends/colleagues, internet and what not.</p>  
+            
+         </div>
+      </div>
+
+
+      <div >
+        <div class="container">
+          <div>
+               <br>
+               <br> 
+               
+               <div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;">
+                     <div id="MathJax_Hidden"></div>
+                 </div>
+                 <div id="MathJax_Message" style="display: none;"></div>
+                 <header role="banner">
+                     <hgroup>
+                         <h1><a href="http://syedmisbah.github.io/">Data Science Interviews</a></h1>
+             
+             
+                     </hgroup>
+             
+                 </header>
+               
+                 <div id="main">
+                     <div id="content">
+                         <div>
+                             <article role="article">
+             
+                                 <!-- <header>
+                                     <h1 class="entry-title">Interviews</h1>
+                                    
+                                 </header> -->
+             
+                                 <p>This list <strike>might</strike> does look scary at first, but it&#8217;s highly unlikely that you will be asked all of these questions will be asked during one interview. Very few people(proabably Ph.D +) will actually know all of this.
+                                     But the idea is to cover everything as exhaustively as possible.</p>
+             
+             <p>If you landed here by mistake, go back to my home page <a href="index.html">here.</a></p>
+             
+             
+             
+             <h2>My experience for a senior data scientist role at a medium sized airline</h2>
+             
+             <p>
+                     I interviewed for this position about 2 months ago. The first call was with a recruiter that was very straight forward (tell me about your background, etc.) plus a simple business question (what factors would go if you wanted to improve the turn around time of aircrafts). 
+                     
+                     The second interview was with a current data scientist was ~50% machine learning algorithms(basics and core ML) and 50% SQL and Big Data. We logged into a shared browser program that had the option to write in Python, SQL, etc. Some of the questions that were asked were:</p>
+             
+                     <ul>
+             <li>What's the difference between SGD, Mini Batch GD and Gradient Descent</li>
+             <li>What does a 1x1 convolution net used for?</li>
+             <li>What would you do if you had a highly imbalanced dataset in a classification problem? </li>
+             <li>How would you build a classifier to determine the gender of a Twitter user given the corpus of their tweets.  How would you scale it to a million people, a billion, live streaming data? How did you train it, how do you periodically check it's valid? What modeling framework did you use and can you explain it at a high level? What about a mathematical one?</li>
+             <li>Imagine a test with a true positive rate of 1 and false positive rate of 5%. Imagine a population with a 1/1000 rate of having the condition the test identifies. Given a positive test, what is the probability of having that condition?</li>
+             <li>Write a complex SQL query using window functions to do solve some business problem - I fucked this one up?</li>
+             <li>Is the slope and gradient the same? Mathematically and intuitively?</li>
+               <li>Tell me about list comprehension, generators, pandas, sklearn, etc. </li>   
+                     <li>Explain the difference between L1 and L2 regularization methods?</li>
+                     
+                     <li>Tell me the difference between an inner join, left join/right join, and union?</li>
+                 
+                     
+                     <li>You have a data set containing 100K rows, and 100 columns, with one of those columns being our dependent variable for a problem we'd like to solve. How can we quickly identify which columns will be helpful in predicting the dependent variable. Identify two techniques and explain them to me as though I were 5 years old.</li>
+                     
+                     <li>What is the Central Limit Theorem and why is it important in data science?</li>
+             
+                     
+                     <li>Explain the 80/20 rule, and tell me about it's importance in model validation.</li>
+                     
+                     <li>In your opinion, which is more important when designing a machine learning model: Model performance? or model accuracy?</li>
+                     
+                     <li>What is one way that you would handle an imbalanced data set that's being used for prediction? (i.e. vastly more negative classes than positive classes.)</li>
+                     
+                     <li>Explain the following parts of a linear regression to me: p-value, coefficient, R-Squared value. What is the significance of each of these components and what assumptions do we hold when creating a linear regression?</li>
+                     
+                
+                     
+                     <li>Explain like I'm 5: K-Means clustering algorithm.</li>
+                     
+                     <li>I have two models of comparable accuracy and computational performance. Which one should I choose for production and why?</li>
+             
+             </ul>
+             
+             
+             
+             
+             
+             
+             <p>
+                     The above list is bits and peices. To cover things more exhaustively, read on. This includes content that I've collected over the years. </p>
+             
+             
+             
+             
+             <h2 id="table-of-content">Things to cover (incl. questions I was asked)</h2>
+             
+             <!-- [TOC] -->
+             
+             <ul>
+             <li><a href="#background-questions">Background Questions</a></li>
+             <li><a href="#process">Process</a></li>
+             <li><a href="#mathematics">Mathematics</a><ul>
+             <li><a href="#linear-algebra">Linear Algebra</a></li>
+             <li><a href="#other-areas">Other Areas</a></li></ul></li>
+             <li><a href="#probability-and-statistics">Probability and Statistics</a><ul>
+             <li><a href="#basic-probability">Basic Probability</a></li>
+             <li><a href="#distributions">Distributions</a></li>
+             <li><a href="#basic-statistics">Basic Statistics</a></li>
+             <li><a href="#experiment-design">Experiment Design</a></li>
+             <li><a href="#point-estimates">Point Estimates</a></li>
+             <li><a href="#testing">Testing</a></li>
+             <li><a href="#ab-tests">A/B Tests</a></li>
+             <li><a href="#bayesian-statistics">Bayesian Statistics</a></li>
+             <li><a href="#time-series">Time Series</a></li>
+             <li><a href="#advanced">Advanced</a></li></ul></li>
+             <li><a href="#machine-learning">Machine Learning</a><ul>
+             <li><a href="#general-ml-questions">General ML Questions</a></li>
+             <li><a href="#regression">Regression</a></li>
+             <li><a href="#classification">Classification</a></li>
+             <li><a href="#regularization">Regularization</a></li>
+             <li><a href="#dimensionality-reduction">Dimensionality Reduction</a></li>
+             <li><a href="#cluster-analysis">Cluster Analysis</a></li>
+             <li><a href="#optimization">Optimization</a></li>
+             <li><a href="#recommendation">Recommendation</a></li>
+             <li><a href="#feature-engineering">Feature Engineering</a></li>
+             <li><a href="#natural-language-processing">Natural Language Processing</a></li>
+             <li><a href="#meta-learning">Meta Learning</a></li>
+             <li><a href="#miscellanea">Miscellanea</a></li></ul></li>
+             <li><a href="#computer-science">DS and alogithms</a><ul>
+             <li><a href="#libraries-and-tools">Libraries and Tools</a></li>
+             <li><a href="#databases">Databases</a></li>
+             <li><a href="#distributed-systems-and-big-data">Distributed Systems and Big Data</a></li></ul></li>
+             <li><a href="#hands-on">Hands-On</a><ul>
+             <li><a href="#problem-to-solve">Problem to Solve</a></li>
+             <li><a href="#coding">Questions to ask</a></li>
+             </ul></li>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h2 id="background-questions">Background Questions</h2>
+             
+             <p>Usually, interviews start with background questions: they can ask you to talk about yourself. This can also happen at the telephone interview stage.</p>
+             
+             <p>For background questions be ready to talk about a summary of your career.</p>
+             
+             <ul>
+             <li>Summarize your experience</li>
+             <li>What companies you worked at? What was your role?</li>
+             <li>Do you have a project portfolio? What projects you implemented? Discuss some of them in details</li>
+             <li>For graduating students: Tell me about your master thesis</li>
+             <li>For aspiring data scientists: Why do you want a career in data science?</li>
+             <li>Have you taken any data-science-related online courses? If yes, how many did you complete with a certificate?</li>
+             <li>Have you participated in any data science challenges? If yes, can you describe one of them? </li>
+             </ul>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h2 id="process">Process</h2>
+             
+             <p>All Machine Learning, Data Mining and Data Science projects should follow some process, so there can be questions about it:</p>
+             
+             <ul>
+             <li>Can you outline the steps in a data science project?</li>
+             <li>Have you heard of CRISP-DM (Cross Industry Standard Process for Data Mining)?</li>
+             </ul>
+             <br>
+             
+             <p>CRISP-DM defines the following steps:</p>
+             
+             <ul>
+             <li>Problem Definition</li>
+             <li>Data Understanding (or Data Exploration)</li>
+             <li>Data Preparation</li>
+             <li>Modeling</li>
+             <li>Evaluation</li>
+             <li>Deployment (for the production)</li>
+             </ul>
+             <br>
+             <p>So next you may discuss each of these steps in details</p>
+             
+             <ul>
+             <li>What is the goal of each step?</li>
+             <li>What are possible activities at each step?</li>
+             </ul>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h2 id="mathematics">Mathematics</h2>
+             
+             <p>Some background mathematics is necessary for doing Data Science, therefore you may expect math-related questions. On the other hand, for some Data Science positions there could be very few math questions, or none at all. In my opinion, it's always better to know the underlying theory when talking about Machine Learning algorithms, but your interviewers may have a different point of view.</p>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h3 id="linear-algebra">Linear Algebra</h3>
+             
+             <p>Basic Linear Algebra questions might include:</p>
+             
+             <ul>
+             <li>What is <script id="MathJax-Element-20" type="math/tex">A \mathbf x = \mathbf b</script>? How to solve it?</li>
+             <li>How do we multiply matrices?</li>
+             <li>What is an Eigenvalue? And what is an Eigenvector? What is Eigenvalue Decomposition or The Spectral Theorem?</li>
+             <li>What is Singular Value Decomposition?</li>
+             <li>You may expect Liner Algebra questions in the Machine Learning part of the interview (see below).</li>
+             </ul>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h3 id="other-areas">Other Areas</h3>
+             
+             <ul>
+             <li>Discrete Mathematics and Logics are not that important for Data Science</li>
+             <li>Probability and Statistics are core skills and discussed in the next section</li>
+             <li>Calculus and Optimization are usually discussed in the Machine Learning part and usually when talking about a particular algorithm</li>
+             </ul>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h2 id="probability-and-statistics">Probability and Statistics</h2>
+             
+             <p>Probability and Statistics give the foundation for Machine Learning, which makes them an important subject. It also may be useful if the company is doing some marketing or website optimization, so they could ask about related concepts such as A/B tests.</p>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h3 id="basic-probability">Basic Probability</h3>
+             
+             <p>You can have a couple of simple questions to check your understanding of probability.</p>
+             
+             <p>For example:</p>
+             
+             <ul>
+             <li>Given two fair dices, what is the probability of getting scores that sum to 4? to 8?</li>
+             <li>A simple questions on Bayes rule: Imagine a test with a true positive rate of 100% and false positive rate of 5%. Imagine a population with a 1/1000 rate of having the condition the test identifies. Given a positive test, what is the probability of having that condition?</li>
+             </ul>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h3 id="distributions">Distributions</h3>
+             
+             <p>You may expect questions about probability distributions:</p>
+             
+             <ul>
+             <li>What is the normal distribution? Give an example of some variable that follows this distribution</li>
+             <li>What about log-normal?</li>
+             <li>Explain what a long tailed distribution is and provide three examples of relevant phenomena that have long tails. Why are they important in classification and prediction problems?</li>
+             <li>How to check if a distribution is close to Normal? Why would you want to check it? What is a QQ Plot? </li>
+             <li>Give examples of data that does not have a Gaussian distribution, or log-normal. </li>
+             <li>Do you know what the exponential family is?</li>
+             <li>Do you know the Dirichlet distribution? the multinomial distribution?</li>
+             </ul>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h3 id="basic-statistics">Basic Statistics</h3>
+             
+             <ul>
+             <li>What is the Laws of Large Numbers? Central Limit Theorem?</li>
+             <li>Why are they important for Statistics?</li>
+             <li>What summary statistics do you know?</li>
+             </ul>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h3 id="experiment-design">Experiment Design</h3>
+             
+             <p>Designing experiments is an important part of Statistics, and it&#8217;s especially useful for doing A/B tests. </p>
+             
+             <p>Sampling and Randomization</p>
+             
+             <ul>
+             <li>Why do we need to sample and how? </li>
+             <li>Why is randomization important in experimental design?</li>
+             <li>Some 3rd party organization randomly assigned people to control and experiment groups. How can you verify that the assignment truly was random?</li>
+             <li>How do you calculate needed sample size? </li>
+             <li>Power analysis. What is it? </li>
+             </ul>
+             <br>
+             <p>Biases</p>
+             
+             <ul>
+             <li>When you sample, what bias are you inflicting?</li>
+             <li>How do you control for biases?</li>
+             <li>What are some of the first things that come to mind when I do X in terms of biasing your data?</li>
+             </ul>
+             <br>
+             <p>Other questions</p>
+             
+             <ul>
+             <li>What are confounding variables? </li>
+             </ul>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h3 id="point-estimates">Point Estimates</h3>
+             
+             <p>Confidence intervals</p>
+             
+             <ul>
+             <li>What is a point estimate? What is a confidence interval for it?</li>
+             <li>How are they constructed?</li>
+             <li>How to interpret confidence intervals?</li>
+             </ul>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h3 id="testing">Testing</h3>
+             
+             <p>Hypothesis tests</p>
+             
+             <ul>
+             <li>Why do we need hypothesis testing? What is P-Value?</li>
+             <li>What is the null hypothesis? How do we state it? </li>
+             <li>Do you know what Type-I/Type-II errors are?</li>
+             <li>What is <script id="MathJax-Element-21" type="math/tex">t</script>-Test/<script id="MathJax-Element-22" type="math/tex">F</script>-Test/ANOVA? When to use it? </li>
+             <li>How would you test if two populations have the same mean? What if you have 3 or 4 populations?</li>
+             <li>You applied ANOVA and it says that the means are different. How do you identify the populations where the differences are significant? </li>
+             <li>What is the distribution of p-value&#8217;s, in general?</li>
+             </ul>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h3 id="ab-tests">A/B Tests</h3>
+             
+             <ul>
+             <li>What is A/B testing? How is it different from usual Hypothesis testing? </li>
+             <li>How can you prove that one improvement you&#8217;ve brought to an algorithm is really an improvement over not doing anything? How familiar are you with A/B testing? </li>
+             <li>How can we tell whether our website is improving?</li>
+             <li>What are the metrics to evaluate a website? A search engine? </li>
+             <li>What kind of metrics would you track for you music streaming website?</li>
+             <li>Common metrics: Engagement / retention rate, conversion, similar products / duplicates matching, how to measure them.</li>
+             <li>Real-life numbers and intuition: Expected user behavior, reasonable ranges for user signup / retention rate, session length / count, registered / unregistered users, deep / top-level engagement, spam rate, complaint rate, ads efficiency.</li>
+             </ul>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h3 id="time-series">Time Series</h3>
+             
+             <ul>
+             <li>What is a time series? </li>
+             <li>Did you do any projects which involved dealing with time?</li>
+             <li>What is the difference between data for usual statistical analysis and time series data? </li>
+             <li>Have you used any of the following: Time series models, Cross-correlations with time lags, Correlograms, Spectral analysis, Signal processing and filtering techniques? If yes, in which context?</li>
+             <li>In time series modeling how can we deal with multiple types of seasonality like weekly and yearly seasonality?</li>
+             </ul>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h3 id="advanced">Advanced</h3>
+             
+             <p>Resampling </p>
+             
+             <ul>
+             <li>Explain what resampling methods are. Why they are useful. What are their limitations?</li>
+             <li>Bootstrapping - how and why it is used? </li>
+             <li>How to use resampling for hypothesis testing? Have you heard of Permutation Tests? </li>
+             <li>How would you apply resampling to time series data? </li>
+             </ul>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h2 id="machine-learning">Machine Learning</h2>
+             
+             <p>In my experience, the Machine Learning part is usually the largest part of the interview. It may be a few basic questions, but it&#8217;s helpful to be prepared to more in-depth Machine Learning questions, especially if you claim to have worked with it on your CV. </p>
+             
+             
+             
+             <h3 id="general-ml-questions">General ML Questions</h3>
+             
+             <p>The ML part may start with something  like:</p>
+             
+             <ul>
+             <li>What is the difference between supervised and unsupervised learning? Which algorithms are supervised learning and which are not? Why? </li>
+             <li>What is your favorite ML algorithm and why? </li>
+             </ul>
+             <br>
+             <p>And then go into details</p>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h3 id="regression">Regression</h3>
+             
+             <ul>
+             <li>Describe the regression problem. Is it supervised learning? Why? </li>
+             <li>What is linear regression? Why is it called linear? </li>
+             <li>Discuss the bias-variance tradeoff.</li>
+             </ul>
+             <br>
+             <p>Linear Regression:</p>
+             
+             <ul>
+             <li>What is Ordinary Least Squares Regression? How it can be learned? </li>
+             <li>Can you derive the OLS Regression formula? (For one-step solution)</li>
+             <li>Is model <script id="MathJax-Element-23" type="math/tex">Y \sim X_1 + X_2 + X_1 \, X_2</script> still linear? Why? </li>
+             <li>Do we always need the intercept term? When do we need it and when do we not? </li>
+             <li>What is collinearity and what to do with it? How to remove multicollinearity? </li>
+             <li>What if the design matrix is not full rank? </li>
+             <li>What is overfitting a regression model? What are ways to avoid it?</li>
+             <li>What is Ridge Regression? How is it different from OLS Regression? Why do we need it? </li>
+             <li>What is Lasso regression? How is it different from OLS and Ridge? </li>
+             </ul>
+             <br>
+             <p>Linear Regression assumptions:</p>
+             
+             <ul>
+             <li>What are the assumptions required for linear regression?</li>
+             <li>What if some of these assumptions are violated? </li>
+             </ul>
+             <br>
+             <p>Significant features in Regression</p>
+             
+             <ul>
+             <li>You would like to find significant features. How would you do that? </li>
+             <li>You fit a multiple regression to examine the effect of a particular feature. The feature comes back insignificant, but you believe it is significant. Why can it happen? </li>
+             <li>Your model considers the feature <script id="MathJax-Element-24" type="math/tex">X</script> significant, and <script id="MathJax-Element-25" type="math/tex">Z</script> is not, but you expected the opposite result. Why can it happen?</li>
+             </ul>
+             <br>
+             <p>Evaluation</p>
+             
+             <ul>
+             <li>How to check is the regression model fits the data well? </li>
+             </ul>
+             <br>
+             <p>Other algorithms for regression</p>
+             
+             <ul>
+             <li>Decision trees for regression</li>
+             <li><script id="MathJax-Element-26" type="math/tex">k</script>-Nearest Neighbors for regression. When to use? </li>
+             <li>Do you know others? E.g. Splines? LOESS/LOWESS? </li>
+             </ul>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h3 id="classification">Classification</h3>
+             
+             <p>Basic:</p>
+             
+             <ul>
+             <li>Can you describe what is the classification problem? </li>
+             <li>What is the simplest classification algorithm?</li>
+             <li>What classification algorithms do you know? Which one you like the most? </li>
+             </ul>
+             <br>
+             <p>Decision trees:</p>
+             
+             <ul>
+             <li>What is a decision tree? </li>
+             <li>What are some business reasons you might want to use a decision tree model?</li>
+             <li>How do you build it? What impurity measures do you know? </li>
+             <li>Describe some of the different splitting rules used by different decision tree algorithms.</li>
+             <li>Is a big brushy tree always good? Why would you want to prune it? </li>
+             <li>Is it a good idea to combine multiple trees? </li>
+             <li>What is Random Forest? Why is it good?</li>
+             <li>Other ways to combine trees? What about boosting?</li>
+             </ul>
+             <br>
+             <p>Logistic regression:</p>
+             
+             <ul>
+             <li>What is logistic regression? </li>
+             <li>How do we train a logistic regression model?</li>
+             <li>How do we interpret its coefficients?</li>
+             </ul>
+             <br>
+             <p>Support Vector Machines</p>
+             
+             <ul>
+             <li>What is the maximal margin classifier? How this margin can be achieved and why is it beneficial?</li>
+             <li>How do we train SVM? What about hard SVM and soft SVM?</li>
+             <li>What is a kernel? What's the intuition behind the Kernel trick?</li>
+             <li>Which kernels do you know? How to choose a kernel? </li>
+             </ul>
+             <br>
+             <p>Neural Networks</p>
+             
+             <ul>
+             <li>What is an Artificial Neural Network?</li>
+             <li>How to train an ANN? What is back propagation? </li>
+             <li>How does a neural network with three layers (one input layer, one inner layer and one output layer) compare to a logistic regression?</li>
+             <li>What is deep learning? What is CNN (Convolution Neural Network) or RNN (Recurrent Neural Network)? </li>
+             </ul>
+             <br>
+             <p>Other models: </p>
+             
+             <ul>
+             <li>What other models do you know? </li>
+             <li>How can we use Naive Bayes classifier for categorical features? What if some features are numerical? </li>
+             <li>Tradeoffs between different types of classification models. How to choose the best one? </li>
+             <li>Compare logistic regression with decision trees and neural networks.</li>
+             </ul>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h3 id="regularization">Regularization</h3>
+             
+             <ul>
+             <li>What is Regularization? </li>
+             <li>Which problem does Regularization try to solve? </li>
+             <li>What does it mean (practically) for a design matrix to be &#8220;ill-conditioned&#8221;?</li>
+             <li>When might you want to use ridge regression instead of traditional linear regression?</li>
+             <li>What is the difference between the <script id="MathJax-Element-27" type="math/tex">L_1</script> and <script id="MathJax-Element-28" type="math/tex">L_2</script> regularization?</li>
+             <li>Why (geometrically) does LASSO produce solutions with zero-valued coefficients (as opposed to ridge)?</li>
+             <li>Let us go through the derivation of OLS or Logistic Regression. What happens when we add <script id="MathJax-Element-29" type="math/tex">L_2</script> regularization? How do the derivations change? What if we replace <script id="MathJax-Element-30" type="math/tex">L_2</script> regularization with <script id="MathJax-Element-31" type="math/tex">L_1</script> regularization?</li>
+             </ul>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h3 id="dimensionality-reduction">Dimensionality Reduction</h3>
+             
+             <p>Basics:</p>
+             
+             <ul>
+             <li>What is the purpose of dimensionality reduction and why do we need it? </li>
+             <li>Are dimensionality reduction techniques supervised or not? Are all of them are (un)supervised? </li>
+             <li>What ways of reducing dimensionality do you know? </li>
+             <li>Is feature selection a dimensionality reduction technique? </li>
+             <li>What is the difference between feature selection and feature extraction? </li>
+             <li>Is it beneficial to perform dimensionality reduction before fitting an SVM? Why or why not?</li>
+             </ul>
+             <br>
+             <p>Principal Component Analysis:</p>
+             
+             <ul>
+             <li>What is Principal Component Analysis (PCA)? What is the problem it solves? How is it related to eigenvalue decomposition (EVD)? </li>
+             <li>What&#8217;s the relationship between PCA and SVD? When SVD is better than EVD for PCA?</li>
+             <li>Under what conditions is PCA effective?</li>
+             <li>Why do we need to center data for PCA and what can happed if we don&#8217;t do it? Do we need to scale data for PCA? </li>
+             <li>Is PCA a linear model or not? Why? </li>
+             </ul><br>
+             
+             <p>Other Dimensionality Reduction techniques:</p>
+             
+             <ul>
+             <li>Do you know other Dimensionality Reduction techniques? </li>
+             <li>What is Independent Component Analysis (ICA)? What&#8217;s the difference between ICA and PCA? </li>
+             <li>Suppose you have a very sparse matrix where rows are highly dimensional. You project these rows on a random vector of relatively small dimensionality. Is it a valid dimensionality reduction technique or not? </li>
+             <li>Have you heard of Kernel PCA or other non-linear dimensionality reduction techniques? What about LLE (Locally Linear Embedding) or <script id="MathJax-Element-32" type="math/tex">t</script>-SNE (<script id="MathJax-Element-33" type="math/tex">t</script>-distributed Stochastic Neighbor Embedding)</li>
+             <li>What is Fisher Discriminant Analysis? How it is different from PCA? Is it supervised or not? </li>
+             </ul>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h3 id="cluster-analysis">Cluster Analysis</h3>
+             
+             <ul>
+             <li>What is the cluster analysis problem?</li>
+             <li>Which cluster analysis methods you know? </li>
+             <li>Describe <script id="MathJax-Element-34" type="math/tex">K</script>-Means. What is the objective of <script id="MathJax-Element-35" type="math/tex">K</script>-Means? Can you describe the Lloyd algorithm? </li>
+             <li>How do you select <script id="MathJax-Element-36" type="math/tex">K</script> for K-Means? </li>
+             <li>How can you modify <script id="MathJax-Element-37" type="math/tex">K</script>-Means to produce soft class assignments?</li>
+             <li>How to assess the quality of clustering? </li>
+             <li>Describe any other cluster analysis method. E.g. DBSCAN.</li>
+             </ul>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h3 id="optimization">Optimization</h3>
+             
+             <p>You may have some basic questions about optimization:</p>
+             
+             <ul>
+             <li>What is the difference between a convex function and non-convex? </li>
+             <li>What is Gradient Descent Method?</li>
+             <li>Will Gradient Descent methods always converge to the same point?</li>
+             <li>What is a local optimum? </li>
+             <li>Is it always bad to have local optima?</li>
+             </ul>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h3 id="recommendation">Recommendation</h3>
+             
+             <ul>
+             <li>What is a recommendation engine? How does it work?</li>
+             <li>Do you know about the Netflix Prize problem? How would you approach it?</li>
+             <li>How to do customer recommendation?</li>
+             <li>What is Collaborative Filtering?</li>
+             <li>How would you generate related searches for a search engine?</li>
+             <li>How would you suggest followers on Twitter?</li>
+             </ul>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h3 id="feature-engineering">Feature Engineering</h3>
+             
+             <ul>
+             <li>How to apply Machine Learning to audio data, images, texts, graphs, etc? </li>
+             <li>What is Feature Engineering? Can you give an example? Why do we need it? </li>
+             <li>How to go from categorical variables to numerical? </li>
+             <li>What to do with categorical variables of high cardinality?</li>
+             </ul>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h3 id="natural-language-processing">Natural Language Processing</h3>
+             
+             <p>If the company deals with text data, you can expect some questions on NLP and Information Retrieval:</p>
+             
+             <ul>
+             <li>What is NLP? How is it related to Machine Learning? </li>
+             <li>How would you turn unstructured text data into structured data usable for ML models?</li>
+             <li>What is the Vector Space Model?</li>
+             <li>What is TF-IDF?</li>
+             <li>Which distances and similarity measures can we use to compare documents? What is cosine similarity? </li>
+             <li>Why do we remove stop words? When do we not remove them?</li>
+             <li>Language Models. What is <script id="MathJax-Element-38" type="math/tex">N</script>-Grams? </li>
+             <li>What is word2vec? How it can be used in NLP and IR?</li>
+             </ul>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h3 id="meta-learning">Meta Learning</h3>
+             
+             <p>Feature Selection:</p>
+             
+             <ul>
+             <li>Are all features equally good? </li>
+             <li>What are the downfalls of using too many or too few variables?</li>
+             <li>How many features should you use? How do you select the best features? </li>
+             <li>What is Feature Selection and why do we need it? </li>
+             <li>Describe several feature selection methods. Are these methods depend on the model or not?</li>
+             </ul><br>
+             
+             <p>Model selection:</p>
+             
+             <ul>
+             <li>You have built several different models. How would you select the best one? </li>
+             <li>You have one model and want to find the best set of parameters for this model. How would you do that? </li>
+             <li>How would you look for the best parameters? Do you know something else apart from grid search? </li>
+             <li>What is Cross-Validation? </li>
+             <li>What is 10-Fold CV?</li>
+             <li>What is the difference between holding out a validation set and doing 10-Fold CV?</li>
+             </ul>
+             <br>
+             <p>Model evaluation</p>
+             
+             <ul>
+             <li>How do you know if your model overfits? </li>
+             <li>How do you assess the results of a logistic regression?</li>
+             <li>Which evaluation metrics you know? Something apart from accuracy?</li>
+             <li>Which is better: Too many false positives or too many false negatives?</li>
+             <li>What precision and recall are?</li>
+             <li>What is a ROC curve? What is AU ROC (AUC)? How to interpret the curve and AU ROC? </li>
+             <li>Do you know about Concordance or Lift? </li>
+             </ul>
+             <br>
+             <p>Discussion Questions:</p>
+             
+             <ul>
+             <li>You have a marketing campaign and you want to send emails to users. You developed a model for predicting if a user will reply or not. How can you evaluate this model? Is there a chart you can use?</li>
+             </ul>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h3 id="miscellanea">Miscellanea</h3>
+             
+             <p>Curse of Dimensionality</p>
+             
+             <ul>
+             <li>What is Curse of Dimensionality? How does it affect distance and similarity measures? </li>
+             <li>What are the problems of large feature space? How does it affect different models, e.g. OLS? What about computational complexity? </li>
+             <li>What dimensionality reductions can be used for preprocessing the data?</li>
+             <li>What is the difference between density-sparse data and dimensionally-sparse data? </li>
+             </ul>
+             <br>
+             <p>Others </p>
+             
+             <ul>
+             <li>You are training an image classifier with limited data. What are some ways you can augment your dataset?</li>
+             </ul>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h2 id="computer-science">DS and alogithms</h2>
+             
+             <p>Knowledge in DS and alogithms is as important for Data Science as knowledge in Machine Learning. So you may get the same type of questions as for any software developer position, but possibly with lower expectations on your answers.</p>
+             <ul>
+                     <li>Given a list of timestamps in sequential order, return a list of lists grouped by weekly aggregation. </li>
+                     <li>Given a list of characters, a list of prior of probabilities for each character, and a matrix of probabilities for each character combination, return the optimal sequence for the highest probability.
+                         </li>
+                     <li>Given a log file with rows featuring a date, a number, and then a string of names, parse the log file and return the count of unique names aggregated by month.</li>
+                     <li>What is recursion?</li>
+             
+                   
+                             <li>write regular expression to match legal IP addresses</li>
+                             <li>write any n log(n) sorting algorithm</li>
+                             <li>implement a tail-recursive factorial function</li>
+                             <li>find minimum of a rotated sorted array</li>
+                             <li>write a function that tests whether two strings are anagrams</li>
+                             <li>find duplicate lines in file. Do it in bash, in python, in mapreduce (your mapper function is fed lines of the file), in sql (the file is represented as a table with only one column “line”)</li>
+                             <li>an array contains n distinct numbers taken from 0, 1, 2, …, n, find the one that is missing from the array</li>
+                             <li>“content_actions” is a table that logs user activity.</li>
+                    
+                     </ul>
+             
+             
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h3 id="libraries-and-tools">Libraries and Tools</h3>
+             
+             <p>Apart from basics of Java/Scala/Python/etc, you may be asked about libraries for data analysis:</p>
+             
+             <ul>
+             <li>Which libraries for data analysis do you know in Python/R/Java?</li>
+             <li>Have you used numpy, scipy, pandas, sklearn?</li>
+             <li>What are some features of the sklearn api that differentiate it from fitting models in R?</li>
+             <li>What are some features of pandas/sklearn that you like? Don't like? Same questions for R.</li>
+             <li>Why is &#8220;vectorization&#8221; such a powerful method for optimizing numerical code? What is going on that makes the code faster relative to alternatives like nested for loops?</li>
+             <li>When is it better to write your own code than using a data science software package?</li>
+             <li>State any 3 positive and negative aspects about your favorite statistical software.</li>
+             <li>Describe a difficult bug you&#8217;ve encountered and how you resolved it.</li>
+             <li>How does floating point affect precision of calculations? Equality tests?</li>
+             <li>What is BLAS? LAPACK?</li>
+             </ul>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h3 id="databases">Databases</h3>
+             
+             <ul>
+             <li>Have you been involved in database design and data modeling?</li>
+             <li>SQL-Related questions: e.g. what is "group by"? </li>
+             <li>Or given some DB schema you may be asked to write a simple SQL query.</li>
+             <li>What is a &#8220;star schema&#8221;? &#8220;snowflake schema&#8221;?</li>
+             <li>Describe different NoSQL technologies you&#8217;re familiar with, what they are good at, and what they are bad at.</li>
+             </ul>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h3 id="distributed-systems-and-big-data">Distributed Systems and Big Data</h3>
+             
+             <p>Basic &#8220;Big Data&#8221; questions:</p>
+             
+             <ul>
+             <li>What is the biggest data set that you have processed and how did you process it? What was the result?</li>
+             <li>Have you used Apache Hadoop, Apache Spark, Apache Flink? Why? Have you used Apache Mahout? </li>
+             </ul>
+             <br>
+             <p>MapReduce</p>
+             
+             <ul>
+             <li>What is MapReduce? Why is it &#8220;shared-nothing&#8221; architecture?</li>
+             <li>Can you implement word count in MapReduce? What about something a bit more complex like TF-IDF? Naive Bayes? </li>
+             <li>What is load balance? How to make sure a MapReduce application has good load balance? </li>
+             <li>Can you give examples where MapReduce does not work? </li>
+             <li>What are examples of &#8220;embarassingly parallelizable&#8221; algorithms?</li>
+             <li>How would you estimate the median of a dataset that is too big to hold in the memory?</li>
+             </ul>
+             
+             
+             
+             
+             
+             
+             <h2 id="hands-on">Hands-On</h2>
+             
+             <p>Also, many interviews have a part which I call &#8220;hands-on&#8221;:  you are given some problem description and you are asked to solve it. You can just talk the interviewers through your solution or even be asked to sit and implement some parts. Sometimes there is also a test assignment to be done at home (prior to the interview). </p>
+             
+             <p>&nbsp;</p>
+             
+             
+             
+             <h3 id="problem-to-solve">Problem to Solve</h3>
+             
+             <p>For example:</p>
+             
+             <p>Assume that you are asked to lead a project on churn detection, and have dataset of known users who stopped using the service and ones who are still using. This data includes demographics and other features.</p>
+             <br>
+             <p>Do the following:</p>
+             
+             <ol>
+             <li>Describe the methodology and model that you will chose to identify churn, and describe your thought process.</li>
+             <li>Think how would you communicate the results to the CEO? </li>
+             <li>Suppose in the dataset only 0.025 of users churned. How would you make it more balanced? </li>
+             </ol>
+             <br>
+             <p>Also:</p>
+             
+             <ul>
+             <li>How would you implement it if you had one day? One month? One year? </li>
+             <li>How would your approach scale? </li>
+             </ul>
+             <br>
+             <p>Other problems: </p>
+             
+             <ul>
+             <li>How would you approach identifying plagiarism? </li>
+             <li>How to find individual paid accounts shared by multiple users?</li>
+             <li>How to detect bogus reviews, or bogus Facebook accounts used for bad purposes?</li>
+             <li>Usually the domain of the problem is related to what the company is doing. If they&#8217;re doing marketing, it will most likely be marketing related. </li>
+             </ul>
+             <br>
+             <p>Additionally, you may be asked:</p>
+             
+             <ul>
+             <li>How would you approach collecting the data if you didn&#8217;t have the dataset? </li>
+             </ul>
+             <br>
+             <p>I will be covering more of this in another post.</p>
+             
+             
+             
+             <h3 id="coding">Questions to ask</h3>
+             
+             <p>When you ask questions, be specific and make sure that the team you're applying for are suited to your profile and persona </p>
+             
+             <ul>
+                     <li>How big is the DS team?</li>
+                     <li>Maturity? How fast has it grown?</li>
+                     <li>Skill distribution on team?</li>
+                     <li>Tooling/development environment? (mainly to know if it's a linux/windows shop)</li>
+                     <li>Project methodology? Agile or other?</li>
+                     <li>Customer engagement model?</li>
+                     <li>How many in-flight projects do you have right now? How many past projects are you supporting?</li>
+                     <li>What is the long term vision for data science at this organization?</li>
+                     <li>Where do you see the Data Science team in a year? five?</li>
+                     <li>Major successes you feel comfortable sharing?</li>
+                     <li>An example of a failure you feel comfortable sharing?</li>
+                     <li>How much executive buy-in on DS initiatives?</li>
+                 </ul>
+             
+             
+             <p>&nbsp;</p>
+             
+                             
+             
+                             </article>
+             
+             
+                 <!-- mathjax config similar to math.stackexchange -->
+                 <script type="text/x-mathjax-config;executed=true">
+                     MathJax.Hub.Config({ jax: ["input/TeX", "output/HTML-CSS"], tex2jax: { inlineMath: [ ['$', '$'] ], displayMath: [ ['$$', '$$']], processEscapes: true, skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }, messageStyle: "none", "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] } });
+                 </script>
+                 <script src="./css/MathJax.js.download" id=""></script>
+             
+                 <iframe scrolling="no" frameborder="0" allowtransparency="true" src="./css/widget_iframe.8f9047c344e062fa7c7ada2fa8332f75.html" title="Twitter settings iframe" style="display: none;"></iframe>
+                 <div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px; margin: 0px;">
+                     <div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-family: MathJax_Size2, sans-serif;"></div>
+                 </div>
+                 <iframe style="display: none;" src="./css/saved_resource(1).html"></iframe>
+             
+
+      
+              
+                          
+            
+
+                  
+  
+            
+    
+      <script src="./js/jquery-1.11.0.min.js">
+      </script> <script src="./js/bootstrap.min.js">
+      </script> <script src="./js/main.min.js"></script> 
+   </body>
+   
+</html>

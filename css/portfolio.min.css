@@ -171,7 +171,7 @@ body {
 
 
 .img-src {
-	background-image: url('../img/bg.jpg'); 
+	background-image: url('../img/bg.png'); 
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -186,7 +186,7 @@ body {
 }
 
 .img-src-sorry {
-	background-image: url('../img/sorry_bg.jpg'); 
+	background-image: url('../img/sorry_bg.png'); 
 	position: absolute;
 	top: 0;
 	bottom: 0;

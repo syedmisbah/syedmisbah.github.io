@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning 101 - Syed Misbah Ahmed</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 40px;
+            background-color: rgba(255, 218, 185, 0.3);
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Machine Learning 101</h1>
+            <p><em>Thursday, October 13, 2016</em></p>
+        </header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/writes.html">Blog</a>
+            <a href="/quips.html">Quips</a>
+        </nav>
+        <main>
+            <p>Some time ago I started a journey into one of the most exciting fields in Computer Science — Machine Learning. This is my recommendation to anyone who would like to explore this topic, but doesn’t know how to start.</p>
+
+            <h3>What you should already know</h3>
+            <p>Calculus (ideally multivariate, but you'll understand concepts even if you only know single-variate). IF you don’t know a lot about this, I would recommend spending some time with MIT’s MV Calculus.</p>
+             
+            <p>Linear algebra: We all know how to multiply matrices, take inverses and calculate determinants. To understand machine learning algorithms, that’s not enough. You need sound understanding of geometric interpretations of these operations. Prof. Gilbert Strang’s Linear Algebra course lectures are an excellent resource to learn Linear Algebra the right way.</p>
+            <p>Probability: It is vital to understand probability theory well, to understand why any machine learning algorithms work. The course below is very relevant. Here is the link to Introduction to Probability</p>
+            <p>Stats</p>
+            <ol>
+                <li>i. Statistics. Start with Udacity’s Intro to stats</li>
+                <li>ii. Use OpenIntro’s textbook to brush up. (Optional again)</li>
+            </ol>
+            <p>A word of caution. Machine Learning is not a place to take baby steps in programming. If you cannot code, take one of many Programming 101 courses. Python is a good language of choice. Most quality courses online use Matlab/Python, but it’s preferable to use Python over Matlab so that you can actually see the calculations being performed and implement them yourself.</p>
+
+            <p>Optional, but highly recommended is to know ADA or Analysis and design of algorithms. Here is a link to my blog page which has a list of algorithms you should know. Data Structures is also important, and Geeks for Geeks is a good place to learn. </p>
+
+            <h3>Step by step guide</h3>
+            <p>The first step is to go through Andrew Ng's Coursera course which is a fantastic way to get your feet wet. You get enough mathematics and theory to obtain a solid understanding of what is going on "under the hood" of ML algorithms, but you don't get bogged down in proofs and superfluous content (at least for getting started). It is an overview of all of the above, and uses Matlab/Octave (Matlab's open-sourced cousin).</p>
+
+            <p>Once through with Andrew Ng’s course, it’s time to look at some of the wonderful free frameworks out there. One of the most popular is scikit-learn, a Python library that implements numpy and other native-C code to make your code fairly fast as well as easy to write. This is best suited for things other than neural networks. Scikit’s own ML intro is really good.</p>
+
+            <p>Another exciting framework that was just made public is TensorFlow, a highly flexible framework created by Google. It's officially a framework for "data flow graphs", which is the superset of neural networks (i.e. neural networks are a type of data flow graph). It promises to be flexible, scalable, fast (uses GPUs automatically*, which are essential for modern neural network development), and be useful in deployment as well as research.</p>
+
+            <p>Data Cleaning & Exploration: What differentiates a good machine learning professional from an average one is the quality of feature engineering and data cleaning which happens on the original data. The more quality time you spend here, the better it is. This step also takes the bulk of your time and hence it helps to put a structure around it. You can refer to the following article. Data Exploration in Python.</p>
+
+            <p>Now you have all what you need in technical skills. It is a matter of practice and what better place to practice than compete with fellow Data Scientists on Kaggle. Go, dive into one of the live competitions currently running on Kaggle and give all what you have learnt a try. Try Kaggle’s Titanic problem. It might be hard at first, but with time you will get better at it.</p>
+        </main>
+    </div>
+</body>
+</html>

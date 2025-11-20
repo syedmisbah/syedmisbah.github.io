@@ -1,0 +1,769 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <title>Syed Misbah</title>
+   <meta charset="utf-8" />
+   <meta name="description" content="Hi, I'm Syed Misbah. Data Scientist, Engineer and Coder." />
+   <meta property="og:description" content="Know more about me." />
+
+   <meta property="og:type" content="article" />
+   <meta property="og:image" content="img/preview.png" />
+   <meta name="author" content="Syed Misbah">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta property="og:url" content="index.html" />
+   <link rel="image_src" href="img/preview.png">
+   <link rel="shortcut icon" href="img/favicon/favicon.png" type="image/png">
+
+   <link rel="canonical" href="index.html" />
+   <link type="text/css" async href="css/bootstrap.min.css" rel="stylesheet">
+   <link type="text/css" async href="css/portfolio.min.css" rel="stylesheet">
+   <link href="font-awesome/css/all.css" rel="stylesheet">
+
+   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/favicon/favicon.png">
+   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/favicon/favicon.png">
+   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/favicon/favicon.png">
+   <link rel="apple-touch-icon-precomposed" href="img/favicon/favicon.png">
+   <style type="text/css">
+      body {
+         background-image: url();
+         background-repeat: no-repeat;
+      }
+   </style>
+
+
+   <script>
+      (function (i, s, o, g, r, a, m) {
+         i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+         }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+      ga('create', 'UA-86944502-2', 'auto');
+      ga('send', 'pageview');
+
+   </script>
+
+
+</head>
+
+
+
+<body id="page" oncontextmenu="return false">
+   <a id="menu-toggle" href="#" class="btn btn-lg toggle"><i class="fa fa-bars"></i></a>
+   <div id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+         <a id="menu-close" href="#" class="btn btn-default btn-lg pull-right toggle toggle-override"><i
+               class="fa fa-times"></i></a>
+         <li><a href="#top">Home</a> </li>
+         <li><a href="#intro">Status Quo</a> </li>
+         <li><a href="#work-header">Work</a> </li>
+         <li><a href="#thingsido-header">Interests</a> </li>
+         <li><a href="#projects-header">Projects</a> </li>
+         <li><a href="#about-header">About</a> </li>
+         <li><a href="#resume-header">Resume</a> </li>
+         <li><a class="sidebar-special" href="viz/index.html">Vizualizations</a> </li>
+         <li><a class="sidebar-special" href="reads/index.html">Reads</a> </li>
+         <li><a class="sidebar-special" href="https://medium.com/@syedmisbah" target="_blank">Writes</a> </li>
+         <li><a class="sidebar-special" href="reads/books.html">Kindle Library</a> </li>
+         <!-- <li><a class="sidebar-special" href="datascienceinterviewsoverview.html">Data Science Interviews</a> </li>
+            <li><a class="sidebar-special" href="wayanad_trek.html">Wayanad Trek</a> </li>
+             -->
+
+      </ul>
+   </div>
+
+
+   <div class="img-src"></div>
+   <div id="top" class="header">
+      <h2 class="location-label"></h2>
+
+      <div class="vert-text">
+         <!-- <p><br><br></p> -->
+         <img class="dp" src="img/dp.jpg" /> <br> <br>
+         <h1>Hi! I am Syed Misbah</h1>
+         <p class="lead"><br>AI/ML Manager @ <a href="https://www.dish.com/" target="_blank" style="color: white;"><u>
+                  Dish</u></a>. I solve problems leveraging AL/ML.</a>
+            <br>
+            <br>I <a href="reads/index.html" target="_blank" style="color: white;"> <u>read</a></u>.</a> I <a
+               href="https://medium.com/@syedmisbah" target="_blank" style="color: white;"> <u>write</a></u>.</a> Here's
+            my <a href="Syed_Misbah_Resume.pdf" target="_blank" style="color: white;"><u>resume</u>.</a>
+         </p> <br>
+         <ul class="list-inline ">
+            <li> <a title="LinkedIn" class="icon" href="http://www.linkedin.com/in/syedmisbah" target="_blank"> <i
+                     class="fab fa-linkedin fa-fw fa-3x"></i> </a> </li>
+
+
+
+            <li> <a title="Github" class="icon" href="https://github.com/syedmisbah" target="_blank"> <i
+                     class="fab fa-github fa-fw fa-3x"></i> </a> </li>
+
+
+
+
+            <li> <a title="Email" class="icon" href="mailto:mailsyedmisbah@gmail.com" target="_blank"
+                  data-toggle="tooltip"> <i class="fa fa-envelope fa-fw fa-3x"><br></i> </a> </li>
+            <li> <a title="+91 9066665419" class="icon" href="tel:+919066665419" target="_blank" data-toggle="tooltip">
+                  <i class="fa fa-phone-volume fa-fw fa-3x"><br></i> </a> </li>
+         </ul>
+
+
+         <br>
+      </div>
+
+
+
+   </div>
+   <div id="intro" class="intro">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center">
+               <h2><i class="fa fa-user fa-3x"></i></h2>
+               <p class="lead"> I am a Data Science & Engg. Manager at <a href="https://www.dish.com/" target="_blank">Dish</a>,
+                  the world's largest satellite television provider.<br><br> Previously, I worked at Evalueserve and Mu
+                  Sigma as a lead data scientist across industries like CPG, retail, manufacturing, airlines and
+                  fintech. <br><br> I maintain a list of the stuff I enjoy reading, watching, or learning from called <a
+                     target="_blank" href="reads/index.html">The Knowledge Bank</a> and occasionally blog <a
+                     target="_blank" href="https://evolvingperceptions1.blogspot.com/">here</a>.</p>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div id="work-header" class="callout work">
+      <div class="vert-text">
+         <h1 class="textual-content">I've worked at a few places</h1>
+      </div>
+   </div>
+   <div id="work" class="work">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-4 col-md-offset-4 text-center">
+               <h2><i class="fa fa-users fa-3x"></i></h2>
+               <br>
+            </div>
+         </div>
+         <br>
+
+         <div class="col-md-3 text-center">
+            <div class="work-item">
+               <a href="https://www.dish.com/" target="_blank"> <img class="work-icon enlarge-on-hover"
+                     src="img/dish.png" /> </a>
+               <h3>DISH Network</br> <small>Data Science and Engg. Manager</small></h3>
+               <div class="projects-itemjust">
+                  <p class="lead"> I am an AI/ML leader at DISH India, leading a team of 14 people across science, engineering and analytics.
+                     My team works in the technology, marketing, sales and operations verticals. I am currently hiring - so if you are a good fit, shoot your resume 
+                     <a href="mailto:syedmisbah.ahmed@dish.com">here</a>.   
+                     
+                  </p>
+               </div>
+            </div>
+         </div>
+
+
+         <div class="col-md-3 text-center">
+            <div class="work-item">
+               <a href="https://www.evalueserve.com/" target="_blank"> <img class="work-icon enlarge-on-hover"
+                     src="img/EVS_LOGO.jpg" /> </a>
+               <h3>Evalueserve<br> <small>Lead Data Scientist</small></h3>
+               <div class="projects-itemjust">
+                  <p class="lead">I lead a team of 22 data scientists for multiple engagements across retail, food and
+                     beverage and energy sectors. Currently, I'm built a voice agent for a fast-food giant using
+                     advanced neural networks and NLP - parallelly working as the head of a AI CoE which executes pilot
+                     engagements for new clients.
+                  </p>
+               </div>
+               </p>
+            </div>
+         </div>
+
+      
+
+         <div class="col-md-3 text-center">
+            <div class="work-item">
+               <a href="https://www.mu-sigma.com/" target="_blank"> <img class="work-icon enlarge-on-hover"
+                     src="img/mslogo.jpg" /> </a>
+               <h3>Mu Sigma<br> <small>Senior Data Scientist</small></h3>
+               <div class="projects-itemjust">
+                  <p class="lead"> I designed &amp; implemented analytics solutions on large scale datasets in
+                     sophisticated organizations using advanced statistical and machine learning models. This included
+                     automating the complete process flow from ingestion to modeling. </p>
+               </div>
+            </div>
+         </div>
+
+         <div class="col-md-3 text-center">
+            <div class="work-item">
+               <a href="https://iisc.ac.in/" target="_blank"> <img class="work-icon enlarge-on-hover"
+                     src="img/IIsc_logo.jpg" /> </a>
+               <h3>IISc<br> <small>Data Science - Analyst Intern</small></h3>
+               <div class="projects-itemjust">
+                  <p class="lead"> I got a wonderful opportunity as a research intern at the Department of Aerospace
+                     engineering, Indian Institute of science. I am working under the guidance of Prof. S.N Omkar. The
+                     project involves machine learning and neural networks.</p>
+               </div>
+            </div>
+         </div>
+
+      </div>
+   </div>
+
+
+   <div id="projects-header" class="callout projects">
+      <div class="vert-text">
+         <h1>Some projects I've worked on</h1>
+      </div>
+   </div>
+   <br>
+   <br>
+   <div class="container">
+      <div class="row">
+         <div class="col-md-4 col-md-offset-4 text-center">
+            <!-- <h2><i class="fa fa-code fa-3x"></i></h2> -->
+            <img class="work-icon enlarge-on-hover"
+                     src="img/dish.png" /> </a>
+            <h2>Projects @ DISH</h2>
+            <br>
+         </div>
+      </div>
+   </div>
+
+
+
+
+
+
+
+   <!-- Project section starts -->
+   <div id="projects" class="projects">
+      <!-- <div class="container"> -->
+
+      <div class="row">
+         <div class="col-md-6 text-center">
+            <img class="projects-icon enlarge-on-hover" src="img/proj/mmm.png"> </a>
+            
+            <h3>Market Mix Modeling (MMX)<br> <small>Dish TV, Sling TV, Boost Mobile</small></h3>
+            <div class="projects-itemjust">
+
+               <p class="lead"> • Developed & deployed a MMX solution which manages $230M/yr. across 17 channels
+                  <br>• Uses a combination of ridge regression-based attribution model and non-linear optimization
+                  <br>• 2.4% lift in activations compared to BAU allocation–reduced SAC by 4.8%
+                  .</p>
+            </div>
+         </div>
+
+         <div class="col-md-6 text-center">
+            <img class="projects-icon enlarge-on-hover" src="img/proj/dco.png"> </a>
+            <h3>Dynamic Creative Optimization (DCO)<br> <small>Dish TV, Sling TV</small></h3>
+            <div class="projects-itemjust">
+
+               <p class="lead">
+                  • Built the DCO solution for serving dynamic creatives to prospects, optimizing elements in realtime
+                  <br>• Developed the ML web service using AWS Lambda, DynamoDB, API Gateway & CloudFront – which
+                  stitches and delivers creatives (HTML/JS Zip bundle) to ad serving platform
+                  <br>• Implemented Bayesian Bandits for continuous optimization of elements towards higher CTR
+                  <br>• ~39% CTR uplift, 0.9% acquisition uplift, and savings of 290 hrs./qtr. Effort</p>
+
+            </div>
+         </div>
+        
+
+      </div>
+      <br><br><br><br>
+      <div class="row">
+         <div class="col-md-6 text-center">
+            <img class="projects-icon enlarge-on-hover" src="img/proj/llm.png"> </a>
+            
+            <h3>GenAI - LLM Chatbot<br> <small>Dish Technology Division</small></h3>
+            <div class="projects-itemjust">
+
+               <p class="lead">• Developed a chatbot using RAG and LangChain for querying Confluence documentation of tech
+                  teams; uses LLama2 7B as the base model, ChromaDB vector store and FAISS for similarity search
+                 <br>• Experimented with PEFT (LoRA/QLoRA) based fine-tuning - but no significant improvement over RAG
+                  <br>• Currently finetuning on Mixtral MoE 8x7B Model using Direct Preference Optimization (DPO).</p>
+            </div>
+         </div>
+
+         <div class="col-md-6 text-center">
+            <img class="projects-icon enlarge-on-hover" src="img/proj/sb.png"> </a>
+            <h3>AI Smart Bidding Platform<br> <small>Dish Marketing Division</small></h3>
+            <div class="projects-itemjust">
+
+               <p class="lead">• Developed the Smart Bidding Algorithm which optimizes for spend on high ROAS patterns (‐17%SAC)
+                  <br>• Led MTA (Multi Touch Attribution) initiative to enable holistic view of channel ROAS
+                  <br>• Built subscription & viewership forecasting model > led to +0.12 AUC for downstream churn models
+                  </p>
+
+            </div>
+         </div>
+
+
+      </div>
+      <!-- <br><br><br><br>
+
+      <div class="row">
+         <div class="col-md-4 text-center">
+            <a> <img class="projects-icon enlarge-on-hover" src="img/proj/forecasting.jpg"> </a>
+            <h3>ArchiDoctor<br> <small>US CPG GIANT</small></h3>
+            <div class="projects-itemjust">
+
+               <p class="lead"> Developed a Competitor Clash Forecasting framework to help account managers design
+                  promotions in accordance with forecasted competitor prices. The framework uses ARIMAX models to
+                  forecast the prices of competitor products and uses these prices to predict manufacturer and category
+                  sales through a regression-based sales attribution model. Captured a 30% reduction in negotiation time
+                  and sales uplift of 2%($3.6MM) across four retailers in six months
+               </p>
+            </div>
+         </div>
+         <div class="col-md-4 text-center">
+            <a target="_blank"> <img class="projects-icon enlarge-on-hover" src="img/proj/video_analytics.JPG"> </a>
+            <h3>Predicitive Reach Booster<br> <small>US CONSUMER DATA PROVIDER</small></h3>
+            <div class="projects-itemjust">
+
+               <p class="lead"> Implemented CNN based YOLO object detection algorithm for a video occasion detection
+                  tool – to detect the class and number of objects present in a scene with a mAP of 51.5%. Additionally,
+                  we also had to design a XGBoost model to classify a scene into consumption, transaction or celebration
+                  based on the class and number of objects detected by YOLO. This was an industry-first dataset for
+                  Consumer Behavior Data and acquired by a Global Beverage Giant for ~$5MM
+            </div>
+         </div>
+         <div class="col-md-4 text-center">
+            <a target="_blank"> <img class="projects-icon enlarge-on-hover" src="img/proj/fingerprinting.png"> </a>
+            <h3>AI Smart Bidding Platform<br> <small>US BASED SPORTS BROADCASTER</small></h3>
+            <div class="projects-itemjust">
+               <p class="lead">Designed a Neo4j graph database based digital fingerprinting model which identifies
+                  unique users across anonymous devices leveraging behavioral relationships. The ideas was to classify
+                  new anonymous user IDs into either a current user or "new-to-platform" users. We reduced advertising
+                  expenses by $0.8MM/month by reducing number of targeted users</p>
+            </div>
+         </div>
+      </div> -->
+      <br><br><br><br>
+
+      <div class="container">
+         <div class="row">
+            <div class="col-md-4 col-md-offset-4 text-center">
+               <img class="work-icon enlarge-on-hover"
+               src="img/mslogo.jpg" /> </a>
+               <h2>Projects @ Mu Sigma</h2>
+               <br>
+            </div>
+         </div>
+      </div>
+
+
+
+      <div class="row">
+         <div class="col-md-6 text-center">
+            <img class="projects-icon enlarge-on-hover" src="img/proj/merch.png"> </a>
+            
+            <h3>Sales Force Planning & Optimization<br> <small>RUSSIAN PETCARE MANUFACTURER</small></h3>
+            <div class="projects-itemjust">
+
+               <p class="lead"> Lead a team of 6 analysts in a <b>$1.3MM engagement</b> to build a sales
+                  force planning and optimization tool to maximize sales uplift or ROI and reduce expenditure. We have
+                  clustered outlets, measured impact of visits using a regression model and designed a Mixed Integer
+                  programming (MIP) based optimizer to generate visit plans. We have also designed a planning &
+                  reporting tool using PowerApps to design plans and report results. Potential impact of ~3% incremental
+                  sales uplift(+$6.2MM) and sales force expenditure reduced by 24%($0.5MM) – and savings of 960
+                  hours/quarter effort.</p>
+            </div>
+         </div>
+
+         <div class="col-md-6 text-center">
+            <img class="projects-icon enlarge-on-hover" src="img/proj/srm.png"> </a>
+            <h3>Strategic Revenue Management<br> <small>US CPG GIANT</small></h3>
+            <div class="projects-itemjust">
+
+               <p class="lead">Working for a leading CPG manufacturer, we created a sales driver model for attribution
+                  of sales volume to key imperatives using ElasticNet regression. We developed a Trade Promotion
+                  Optimization (TPO) framework which enabled the Account teams to design optimized promo plans leading
+                  to reduction of ~2100 hrs. of manual effort/quarter. The framework is powered by a linear optimizer on
+                  the sales driver model & builds a 52-week calendar detailing optimal price points, ideal promotion
+                  weeks, and optimal execution distribution points</p>
+
+            </div>
+         </div>
+
+
+      </div>
+      <br><br><br><br>
+
+      <div class="row">
+         <div class="col-md-4 text-center">
+            <a> <img class="projects-icon enlarge-on-hover" src="img/proj/forecasting.jpg"> </a>
+            <h3>Competitor Clash Forecasting<br> <small>US CPG GIANT</small></h3>
+            <div class="projects-itemjust">
+
+               <p class="lead"> Developed a Competitor Clash Forecasting framework to help account managers design
+                  promotions in accordance with forecasted competitor prices. The framework uses ARIMAX models to
+                  forecast the prices of competitor products and uses these prices to predict manufacturer and category
+                  sales through a regression-based sales attribution model. Captured a 30% reduction in negotiation time
+                  and sales uplift of 2%($3.6MM) across four retailers in six months
+               </p>
+            </div>
+         </div>
+         <div class="col-md-4 text-center">
+            <a target="_blank"> <img class="projects-icon enlarge-on-hover" src="img/proj/video_analytics.JPG"> </a>
+            <h3>Video Occasion Detection & Classfication<br> <small>US CONSUMER DATA PROVIDER</small></h3>
+            <div class="projects-itemjust">
+
+               <p class="lead"> Implemented CNN based YOLO object detection algorithm for a video occasion detection
+                  tool – to detect the class and number of objects present in a scene with a mAP of 51.5%. Additionally,
+                  we also had to design a XGBoost model to classify a scene into consumption, transaction or celebration
+                  based on the class and number of objects detected by YOLO. This was an industry-first dataset for
+                  Consumer Behavior Data and acquired by a Global Beverage Giant for ~$5MM
+            </div>
+         </div>
+         <div class="col-md-4 text-center">
+            <a target="_blank"> <img class="projects-icon enlarge-on-hover" src="img/proj/fingerprinting.png"> </a>
+            <h3>Digital Fingerprinting<br> <small>US BASED SPORTS BROADCASTER</small></h3>
+            <div class="projects-itemjust">
+               <p class="lead">Designed a Neo4j graph database based digital fingerprinting model which identifies
+                  unique users across anonymous devices leveraging behavioral relationships. The ideas was to classify
+                  new anonymous user IDs into either a current user or "new-to-platform" users. We reduced advertising
+                  expenses by $0.8MM/month by reducing number of targeted users</p>
+            </div>
+         </div>
+      </div>
+      <br><br><br><br>
+
+      <div class="container">
+         <div class="row">
+            <div class="col-md-4 col-md-offset-4 text-center">
+               <h2><i class="fa fa-code fa-3x"></i></h2>
+               <h2>FOSS Projects</h2>
+               <br>
+            </div>
+         </div>
+      </div>
+
+
+      <div class="col-md-6 text-center">
+         <a href="slampreport.pdf" target="_blank"> <img class="projects-icon enlarge-on-hover" src="img/proj/slam.jpg">
+         </a>
+         <h3>Simultaneous Localization Area & Mapping<br> <small>June'17</small></h3>
+         <div class="projects-itemjust">
+
+            <p class="lead"> Building rich 3D maps of environments is an important task for mobile robotics. In this
+               project a quadcopter and a Kinect™ camera are used to perform Simultaneous Localization and Mapping. Rich
+               3D maps are built using RGB-D to generate dense models of indoor environments. The detailed project
+               report can be found <a href="slamreport.pdf" target="_blank">here</a>. A presentation is also <a
+                  href="https://drive.google.com/file/d/0B3ymNStsHRVyYXNPNDQyLXVHbEE/view?usp=sharing" target="_blank">
+                  available </a> for a more gentle introduction.</p><br><br><br><br>
+         </div>
+      </div>
+
+      <div class="col-md-6 text-center">
+         <a href="https://github.com/syedmisbah/Satellite-Orbit-Simulator" target="_blank"> <img
+               class="projects-icon enlarge-on-hover" src="img/proj/sat.jpg"> </a>
+         <h3>Satellite Orbit Analysis Tool<br> <small>Feb '15</small></h3>
+         <div class="projects-itemjust">
+
+            <p class="lead"> Wrote a GUI, an <b>orbit analysis</b> tool, and did some code factoring on a simulation
+               for a nanosatellite that will actually launch into space in a few years. </p>
+         </div>
+      </div>
+
+      <div>
+
+      <!-- <div class="col-md-6 text-center">
+         <a href="https://play.google.com/store/apps/details?id=com.bit.biteie" target="_blank"> <img
+               class="projects-icon enlarge-on-hover" src="img/proj/app.jpeg"> </a>
+         <h3>BIT E&amp;I Android app<br> <small>May '17</small></h3>
+         <div class="projects-itemjust">
+
+            <p class="lead">Developed an app for BIT's Electronic and Instrumentation department which is used by
+               hundreds of students to keep track of assignments, syllabus, notes etc. The app can be found on the
+               Google Play Store <a href="https://play.google.com/store/apps/details?id=com.bit.biteie"
+                  target="_blank">here.</a>The source code of the app is available as a public repo on my Github <a
+                  href="https://github.com/syedmisbah/biteie" target="_blank">here.</a> The app has support for push
+               notifications as well and was built completely on the Java, XML and Firebase stack.</p>
+
+         </div>
+      </div> -->
+
+
+      <!-- </div> -->
+      <!-- <br><br><br><br>
+      <br><br> <br><br> <br><br>
+      <div class="row">
+         <br><br> -->
+         <!-- <div class="col-md-4 text-center">
+            <a> <img class="projects-icon enlarge-on-hover" src="img/proj/sims.jpg"> </a>
+            <h3>Smart Intersection Management System<br> <small>Jan '16</small></h3>
+            <div class="projects-itemjust">
+
+               <p class="lead"> I designed a traffic based feedback intersection system which changes the time of green,
+                  amber and red light with respect to the traffic flow rather than time. This system works in two basic
+                  steps. The first is to get the Traffic length(TLen) and traffic density(TDens) using image processing
+                  techniques. The second step is to use the data collected above to change the time the traffic signals
+                  are green for a specific direction of traffic at an intersection.
+               </p>
+            </div>
+         </div> -->
+
+         <!-- <br><br>
+         <div class="col-md-4 text-center">
+            <a target="_blank"> <img class="projects-icon enlarge-on-hover" src="img/proj/ha.jpg"> </a>
+            <h3>Advanced Home Automation System<br> <small>Oct '15</small></h3>
+            <div class="projects-itemjust">
+
+               <p class="lead"> I designed and built an Arduino based controller to deploy around my house. The system
+                  uses an inexpensive OLED display and a rotary encoder that is mounted in custom laser cut brushed
+                  stainless steel wall plates along with a capacitive touch sensor to wake it all up. The controller
+                  communicates with Mat’s OpenHAB home automation server via MQTT and can be programmed to monitor and
+                  control pretty much any systems around the home. </p>
+            </div>
+         </div>
+         <div class="col-md-4 text-center">
+            <a target="_blank"> <img class="projects-icon enlarge-on-hover" src="img/proj/smw.jpg"> </a>
+            <h3>Smart Watch <small>April '16</small></h3>
+            <div class="projects-itemjust">
+
+               <p class="lead"><br> This smart watch is my attempt at building a low cost watch that interfaces with an
+                  android phone. The overall structure is in the picture above. The watch design is straightforward,
+                  consisting of four major sections: a battery charging circuit, vibrating motor for silent alerts,
+                  programmable Arduino-compatible core with power regulation and Bluetooth LE, and an OLED display with
+                  push buttons. </p>
+            </div>
+         </div>
+      </div>
+      <br> <br><br><br>
+
+      <div class="row">
+
+         <div class="col-md-6 text-center">
+            <a href="https://github.com/syedmisbah/Resume" target="_blank"> <img class="projects-icon enlarge-on-hover"
+                  src="img/proj/res.jpg"> </a>
+            <h3>Latex Resume Template<br> <small>August '16</small></h3>
+            <div class="projects-itemjust">
+
+               <p class="lead"> Finally ported my obsolete Word resume into <b>Latex</b> and open-sourced it! There
+                  aren't many half-decent resume templates out there. My resume template helped me land multiple job
+                  offers and I hope it will help you as well. </p>
+            </div>
+         </div> -->
+
+         <br><br> <br><br> <br><br>
+
+
+      </div>
+
+
+      <br>
+
+
+   </div>
+   </div>
+
+
+   <!-- Project section ends -->
+
+
+
+   <div id="thingsido-header" class="callout thingsido">
+      <div class="vert-text">
+         <h1>I <i class="fa fa-heart fa-1x" aria-hidden="true"></i> doing new things</h1>
+      </div>
+   </div>
+   <div id="thingsido" class="thingsido">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-6 text-center">
+               <h2><i class="fa fa-newspaper fa-3x"></i></h2>
+               <br>
+               <div class="projects-itemjust">
+                  <p class="lead"> I've been fortunate to have been in involved with Prof <a
+                        href="http://www.aero.iisc.ernet.in/users/omkar" target="_blank">S. N Omkar</a> in Robotics and
+                     Machine Learning, and am currently in the process of getting a research paper published. </p>
+               </div>
+            </div>
+            <div class="col-md-6 text-center">
+               <h2><i class="fa fa-quote-left fa-3x"></i></h2>
+               <br>
+               <div class="projects-itemjust">
+                  <p class="lead"> I am a volunteer at <a href="http://www.aligsociety.org/" target="_blank">ALIG, </a>
+                     a national level NGO which is working on social entrepreneurship, education and health in India's
+                     hinterlands.</p>
+               </div>
+            </div>
+         </div><br>
+         <br><br><br>
+         <div class="row">
+            <div class="col-md-6 text-center">
+               <h2><i class="fa fa-users fa-3x"></i></h2>
+               <br>
+               <div class="projects-itemjust">
+                  <p class="lead"> I organized a <a href="https://goo.gl/TWuHnt" target="_blank">pre-placement
+                        workshop</a> for my juniors. This workshop had sessions ranging from profile building, resume
+                     writing to mock interviews. It was a big success and the team involved got a lot of praise for it.
+                  </p>
+               </div>
+            </div>
+
+
+            <div class="col-md-6 text-center">
+               <h2><i class="fab fa-wikipedia-w fa-3x"></i></h2>
+               <br>
+               <div class="projects-itemjust">
+                  <p class="lead"> I am a regular editor on Wikipedia, going by my pseudonym <a
+                        href="https://en.wikipedia.org/wiki/User:Oakshade" target="_blank">Oakshade. </a>I have already
+                     edited around 15,000 articles and am currently ranked 4,996 on <a
+                        href="https://en.wikipedia.org/wiki/Wikipedia:List_of_Wikipedians_by_number_of_edits"
+                        target="_blank">Wikipedia Editor List.</a></p>
+               </div>
+            </div>
+            <br><br>
+         </div>
+      </div>
+   </div>
+
+   <div id="about-header" class="callout about">
+      <div class="vert-text">
+         <h1>And a little bit about me...</h1>
+      </div>
+   </div>
+   <div id="about" class="about">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-4 col-md-offset-4 text-center">
+               <h2><i class="fa fa-rocket fa-3x"></i></h2>
+               <br>
+               <br>
+               <br>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-4 text-center">
+               <h3><i class="fa fa-car fa-2x"></i></h3>
+               <div class="projects-itemjust">
+                  <p class="lead"> I have raced occassionaly on the <a
+                        href="https://en.wikipedia.org/wiki/Kari_Motor_Speedway" target="_blank">Kari Motor Speedway</a>
+                     &amp; in friendly go-kart championships. My love for four-wheeled action is
+                     infinite, and my weapon of choice is my <a href="img/beast.JPG" title="The Beast"
+                        target="_blank">beast</a>.</p>
+               </div>
+            </div>
+            <div class="col-md-4 text-center">
+               <h3><i class="fas fa-person-booth fa-2x"></i></h3>
+               <div class="projects-itemjust">
+                  <p class="lead"> My <a target="_blank"
+                        href="http://en.wikipedia.org/wiki/Myers-Briggs_Type_Indicator">Myers-Briggs Type
+                        Indicator(MBTI)</a> is <a target="_blank" href="http://typelogic.com/estj.html">ESTJ</a>
+                     [Extroverted Sensing Thinking Judging]. The favorite people I supposedly share my personality type
+                     with are <a target="_blank" href="http://www.celebritytypes.com/estj.php">Henry Ford</a>, <a
+                        href="http://www.celebritytypes.com/estj.php">Hillary Clinton</a> and <a target="_blank"
+                        href="http://www.celebritytypes.com/estj.php">Michelle Obama</a>. You too should take the test
+                     <a target="_blank" href="http://www.16personalities.com/">here</a>. </p>
+               </div>
+            </div>
+            <div class="col-md-4 text-center">
+               <h3><i class="fas fa-edit fa-2x"></i></h3>
+               <div class="projects-itemjust">
+                  <p class="lead"> I write on <a href="https://www.quora.com/Syed-Misbah-1" target="_blank">Quora</a>
+                     whenever I feel like I have something new to add, usually about India, life, code and education. I
+                     really want to start my own blog soon <strike>but haven't quite gotten around to it.</strike> and I
+                     finally <a target="_blank" href="https://evolvingperceptions1.blogspot.com/">did</a>. Although I am
+                     not usually active these days because of work pressure. </p>
+               </div>
+            </div>
+         </div>
+         <br>
+         <div class="row">
+            <div class="col-md-4 text-center">
+               <h3><i class="fas fa-blog fa-2x"></i></h3>
+               <div class="projects-itemjust">
+                  <p class="lead"> I enjoy blogging and reading about <a href="https://news.ycombinator.com/news"
+                        target="_blank">tech</a>. I'm compiling a list of my favorite books, videos, articles and news
+                     sources on the internet in a list called <a target="_blank" href="reads/index.html">The Knowledge
+                        Bank</a>. Reddit has become one of my most integral source of news.</p>
+               </div>
+            </div>
+            <div class="col-md-4 text-center">
+               <h3><i class="fa fa-plane fa-2x"></i></h3>
+               <div class="projects-itemjust">
+                  <p class="lead"> I am a flight simulation enthusiast and currently serve as a First Officer in <a
+                        href="https://airindiavirtual.in/" target="_blank">Virtual Air India.</a> I usually fly the <a
+                        href="http://www.boeing.com/commercial/777/" target="_blank">Boeing 777</a> on <a
+                        href="https://en.wikipedia.org/wiki/Non-stop_flight" target="_blank">long haul routes.</a> I
+                     have recently started flying short hauls in the <a target="_blank"
+                        href="http://www.boeing.com/commercial/737ng/">Boeing 737</a> as well.</p>
+               </div>
+            </div>
+            <div class="col-md-4 text-center">
+               <h3><i class="fa fa-gamepad fa-2x"></i></h3>
+               <div class="projects-itemjust">
+                  <p class="lead"> I love playing Counter Strike Source and go by the name <a
+                        href="https://hitman.com/en-us" target="_blank">Hitman</a>. I am currently ranked <a
+                        href="https://www.gametracker.com/player/Hitman/89.179.240.119:27027/" target="_blank">761 out
+                        of 176063 </a>players in CSS World servers. Maximum kills recorded were 407, in an all-nighter
+                     match like <a href="img/cssmatch.jpg" title="CSS Match\" target="_blank">this one</a>.</p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- ======= Recent Blog Posts Section ======= -->
+   <div id="about-header" class="callout blog">
+      <div class="vert-text">
+         <h1>Some of my recent blog posts</h1>
+      </div>
+   </div>
+   <section id="recent-blog-posts" class="recent-blog-posts">
+
+      <div class="container" data-aos="fade-up">
+
+         <header class="section-header">
+            <h2 style="align-items: center;align-content: center;text-align: center;"> </h2>
+            <br>
+         </header>
+
+
+
+         <div id="medium-widget" style="width: 100%;"></div>
+
+
+         <div id="retainable-rss-embed"
+            data-rss="https://medium.com/feed/retainable,https://medium.com/feed/data-decoded" data-maxcols="4"
+            data-layout="grid" data-poststyle="external" data-readmore="Go to post" data-buttonclass="btn btn-primary"
+            data-offset="-100">
+
+
+
+
+
+
+
+
+
+
+
+         </div>
+         <br> <br> <br> <br> <br> <br> <br>
+   </section>
+   <div id="resume-header" class="callout resume">
+      <div class="vert-text">
+         <h1>And here's my resumé...</h1>
+         <br><br> <a href="Syed_Misbah_Resume.pdf" class="btn btn-lg btn-default btn-special" target="_blank"> <i
+               class="fa fa-eye fa-2x"></i> </a>
+      </div>
+   </div>
+   <footer id="footer" class="footer">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-4 col-md-offset-4 text-center">
+               <hr>
+               <p class="lead">Copyright &copy; Syed Misbah 2023</p>
+            </div>
+         </div>
+      </div>
+   </footer>
+   <script src="https://www.twilik.com/assets/retainable/rss-embed/retainable-rss-embed.js"></script>
+   <script src="js/jquery-1.11.0.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <script src="js/main.min.js"></script>
+</body>
+
+
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Syed Misbah Ahmed</title>
+    <title>Blog - Syed Misbah</title>
     <style>
         body {
             font-family: sans-serif;
@@ -11,16 +11,23 @@
             background-color: rgba(255, 218, 185, 0.3); /* Light Peach with 30% opacity */
         }
         .container {
-            max-width: 800px;
+            display: flex;
+            max-width: 960px;
             margin: 0 auto;
         }
         nav {
-            margin: 20px 0;
+            width: 150px;
+            margin-right: 40px;
+            flex-shrink: 0;
         }
         nav a {
-            margin-right: 15px;
+            display: block;
+            margin-bottom: 10px;
             text-decoration: none;
-            font-weight: normal; /* Ensure nav links are not bold */
+            font-weight: bold;
+        }
+        .main-content {
+            flex-grow: 1;
         }
         .post-list {
             list-style: disc; /* Explicit bullet points */
@@ -45,37 +52,39 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Blog</h1>
-        </header>
         <nav>
             <a href="/">Home</a>
             <a href="writes.html">Blog</a>
             <a href="quips.html">Quips</a>
         </nav>
-        <main>
-            <ul class="post-list">
-                <li><a href="posts/thappad-movie-review.html">Thappad - A slap on our faces - Movie review</a> <em>(Sunday, March 8, 2020)</em></li>
-                <li><a href="posts/depression-cherry.html">Depression Cherry</a> <em>(Friday, December 2, 2016)</em></li>
-                <li><a href="posts/dear-zindagi-take-2.html">Dear Zindagi - Take 2</a> <em>(Wednesday, November 30, 2016)</em></li>
-                <li><a href="posts/data-science-101.html">Data Science 101: Part 1</a> <em>(Wednesday, October 26, 2016)</em></li>
-                <li><a href="posts/hacking-campus-placements.html">Hacking Campus Placements</a> <em>(Wednesday, October 19, 2016)</em></li>
-                <li><a href="posts/machine-learning-101.html">Machine Learning 101</a> <em>(Thursday, October 13, 2016)</em></li>
-                <li><a href="posts/what-does-education-mean.html">What does education mean?</a> <em>(Wednesday, August 31, 2016)</em></li>
-                <li><a href="posts/the-2008-financial-crisis-timeline.html">The 2008 Financial Crisis Timeline</a> <em>(Sunday, July 31, 2016)</em></li>
-                <li><a href="posts/the-hero-of-gotham.html">The Hero of Gotham</a> <em>(Thursday, July 14, 2016)</em></li>
-                <li><a href="posts/attitude.html">Attitude</a> <em>(Tuesday, May 31, 2016)</em></li>
-                <li><a href="posts/the-best-of-harry-potter-fan-theories.html">The best of Harry Potter fan theories</a> <em>(Monday, May 2, 2016)</em></li>
-                <li><a href="posts/the-importance-of-marks.html">The importance of marks</a> <em>(Tuesday, April 5, 2016)</em></li>
-                <li><a href="posts/algorithms-101.html">Algorithms 101</a> <em>(Sunday, March 27, 2016)</em></li>
-                <li><a href="posts/games-for-logitech-g27.html">Games for the Logitech G27 steering wheel</a> <em>(Monday, January 11, 2016)</em></li>
-                <li><a href="posts/the-true-face-of-capitalism.html">The true face of capitalism</a> <em>(Monday, December 14, 2015)</em></li>
-                <li><a href="posts/logic-behind-india-driving-on-the-left.html">Logic behind India driving on the left hand side of the road.</a> <em>(Wednesday, September 30, 2015)</em></li>
-                <li><a href="posts/piku-beyond-relationships.html">Piku: Beyond Relationships</a> <em>(Monday, May 18, 2015)</em></li>
-                <li><a href="posts/the-big-switch.html">The Big Switch</a> <em>(Monday, November 3, 2014)</em></li>
-                <li><a href="posts/the-empty-nest.html">The Empty Nest</a> <em>(Thursday, October 30, 2014)</em></li>
-            </ul>
-        </main>
+        <div class="main-content">
+            <header>
+                <h1>Blog</h1>
+            </header>
+            <main>
+                <ul class="post-list">
+                    <li><a href="posts/thappad-movie-review.html">Thappad - A slap on our faces - Movie review</a> <em>(Sunday, March 8, 2020)</em></li>
+                    <li><a href="posts/depression-cherry.html">Depression Cherry</a> <em>(Friday, December 2, 2016)</em></li>
+                    <li><a href="posts/dear-zindagi-take-2.html">Dear Zindagi - Take 2</a> <em>(Wednesday, November 30, 2016)</em></li>
+                    <li><a href="posts/data-science-101.html">Data Science 101: Part 1</a> <em>(Wednesday, October 26, 2016)</em></li>
+                    <li><a href="posts/hacking-campus-placements.html">Hacking Campus Placements</a> <em>(Wednesday, October 19, 2016)</em></li>
+                    <li><a href="posts/machine-learning-101.html">Machine Learning 101</a> <em>(Thursday, October 13, 2016)</em></li>
+                    <li><a href="posts/what-does-education-mean.html">What does education mean?</a> <em>(Wednesday, August 31, 2016)</em></li>
+                    <li><a href="posts/the-2008-financial-crisis-timeline.html">The 2008 Financial Crisis Timeline</a> <em>(Sunday, July 31, 2016)</em></li>
+                    <li><a href="posts/the-hero-of-gotham.html">The Hero of Gotham</a> <em>(Thursday, July 14, 2016)</em></li>
+                    <li><a href="posts/attitude.html">Attitude</a> <em>(Tuesday, May 31, 2016)</em></li>
+                    <li><a href="posts/the-best-of-harry-potter-fan-theories.html">The best of Harry Potter fan theories</a> <em>(Monday, May 2, 2016)</em></li>
+                    <li><a href="posts/the-importance-of-marks.html">The importance of marks</a> <em>(Tuesday, April 5, 2016)</em></li>
+                    <li><a href="posts/algorithms-101.html">Algorithms 101</a> <em>(Sunday, March 27, 2016)</em></li>
+                    <li><a href="posts/games-for-logitech-g27.html">Games for the Logitech G27 steering wheel</a> <em>(Monday, January 11, 2016)</em></li>
+                    <li><a href="posts/the-true-face-of-capitalism.html">The true face of capitalism</a> <em>(Monday, December 14, 2015)</em></li>
+                    <li><a href="posts/logic-behind-india-driving-on-the-left.html">Logic behind India driving on the left hand side of the road.</a> <em>(Wednesday, September 30, 2015)</em></li>
+                    <li><a href="posts/piku-beyond-relationships.html">Piku: Beyond Relationships</a> <em>(Monday, May 18, 2015)</em></li>
+                    <li><a href="posts/the-big-switch.html">The Big Switch</a> <em>(Monday, November 3, 2014)</em></li>
+                    <li><a href="posts/the-empty-nest.html">The Empty Nest</a> <em>(Thursday, October 30, 2014)</em></li>
+                </ul>
+            </main>
+        </div>
     </div>
 </body>
 </html>

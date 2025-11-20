@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quips - Syed Misbah Ahmed</title>
+    <title>Quips - Syed Misbah</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         body {
             font-family: sans-serif;
@@ -11,40 +12,92 @@
             background-color: rgba(255, 218, 185, 0.3);
         }
         .container {
-            max-width: 800px;
+            display: flex;
+            max-width: 960px;
             margin: 0 auto;
         }
         nav {
-            margin: 20px 0;
+            width: 150px;
+            margin-right: 40px;
+            flex-shrink: 0;
         }
         nav a {
-            margin-right: 15px;
+            display: block;
+            margin-bottom: 10px;
             text-decoration: none;
             font-weight: bold;
+        }
+        .main-content {
+            flex-grow: 1;
         }
         blockquote {
             border-left: 2px solid #ccc;
             padding-left: 20px;
             margin-left: 0;
-            margin-bottom: 20px;
+            margin-bottom: 52px; /* Increased by 100% */
             font-style: italic;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Quips</h1>
-        </header>
         <nav>
             <a href="/">Home</a>
             <a href="writes.html">Blog</a>
             <a href="quips.html">Quips</a>
         </nav>
-        <main>
-            <!-- Your saved text/comments will go here -->
-            <p>A collection of interesting comments and posts.</p>
-        </main>
+        <div class="main-content">
+            <header>
+                <h1>Quips</h1>
+            </header>
+            <main>
+                <!-- Your saved text/comments will go here -->
+                <p>A collection of interesting comments and posts.</p>
+            </main>
+        </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('data/data.json')
+                .then(response => response.json())
+                .then(data => {
+                    const mainContent = document.querySelector('main');
+                    // Clear existing content if necessary
+                    // mainContent.innerHTML = '<p>A collection of interesting comments and posts.</p>';
+                    
+                    data.filter(item => !item.over_18).forEach(item => {
+                        const blockquote = document.createElement('blockquote');
+                        
+                        let content = '';
+                        if (item.title) {
+                            content += `<strong>${item.title}</strong>`;
+                        }
+                        if (item.body) {
+                            content += marked.parse(item.body, { inline: true });
+                        }
+                        
+                        blockquote.innerHTML = content;
+                        
+                        const authorInfo = document.createElement('p');
+                        authorInfo.style.color = 'lightgrey';
+                        authorInfo.style.fontWeight = 'normal';
+                        
+                        const permalink = document.createElement('a');
+                        permalink.href = `https://www.reddit.com${item.permalink}`;
+                        permalink.textContent = ` (permalink)`;
+                        permalink.target = '_blank';
+                        permalink.style.color = 'lightgrey';
+                        permalink.style.textDecoration = 'none';
+                        
+                        authorInfo.textContent = `- ${item.author}`;
+                        authorInfo.appendChild(permalink);
+                        
+                        blockquote.appendChild(authorInfo);
+                        mainContent.appendChild(blockquote);
+                    });
+                })
+                .catch(error => console.error('Error loading quips:', error));
+        });
+    </script>
 </body>
 </html>

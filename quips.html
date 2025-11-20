@@ -9,7 +9,7 @@
         body {
             font-family: sans-serif;
             margin: 40px;
-            background-color: rgba(255, 218, 185, 0.3);
+            background-color: rgba(173, 216, 230, 0.15); /* Light Blue with 15% opacity */
         }
         .container {
             display: flex;
@@ -25,7 +25,14 @@
             display: block;
             margin-bottom: 10px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: normal; /* Ensure nav links are not bold */
+            color: black; /* Ensure nav links are black */
+        }
+        /* General link styling */
+        a, a:visited {
+            color: black;
+            font-weight: normal;
+            text-decoration: underline;
         }
         .main-content {
             flex-grow: 1;
@@ -37,16 +44,27 @@
             margin-bottom: 52px; /* Increased by 100% */
             font-style: italic;
         }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            nav {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+            nav a {
+                display: inline-block;
+                margin: 0 10px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <nav>
-            <a href="/">Home</a>
-            <a href="writes.html">Blog</a>
-            <a href="quips.html">Quips</a>
-            <a href="reading-list.html">Reading List</a>
-        </nav>
+        <div id="nav-placeholder"></div>
         <div class="main-content">
             <header>
                 <h1>Quips</h1>
@@ -58,13 +76,20 @@
         </div>
     </div>
     <script>
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('nav-placeholder').innerHTML = data;
+            });
+    </script>
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
             fetch('data/data.json')
                 .then(response => response.json())
                 .then(data => {
                     const mainContent = document.querySelector('main');
                     // Clear existing content if necessary
-                    // mainContent.innerHTML = '<p>A collection of interesting comments and posts.</p>';
+                    // mainContent.innerHTML = '<p>A collection of interesting comments and posts.p>';
                     
                     data.filter(item => !item.over_18).forEach(item => {
                         const blockquote = document.createElement('blockquote');

@@ -8,7 +8,7 @@
         body {
             font-family: sans-serif;
             margin: 40px;
-            background-color: rgba(255, 218, 185, 0.3); /* Light Peach with 30% opacity */
+            background-color: rgba(173, 216, 230, 0.15); /* Light Blue with 15% opacity */
         }
         .container {
             display: flex;
@@ -29,24 +29,39 @@
             display: block;
             margin-bottom: 10px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: normal; /* Ensure nav links are not bold */
+            color: black; /* Ensure nav links are black */
         }
-        .main-content {
-            flex-grow: 1;
+        /* General link styling */
+        a, a:visited {
+            color: black;
+            font-weight: normal;
+            text-decoration: underline;
         }
         header p {
             max-width: 60ch;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            nav {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+            nav a {
+                display: inline-block;
+                margin: 0 10px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <nav>
-            <a href="/">Home</a>
-            <a href="writes.html">Blog</a>
-            <a href="quips.html">Quips</a>
-            <a href="reading-list.html">Reading List</a>
-        </nav>
+        <div id="nav-placeholder"></div>
         <div class="main-content">
             <header>
                 <img src="img/dp.jpg" alt="Syed Misbah" class="profile-pic">
@@ -60,5 +75,12 @@
             </main>
         </div>
     </div>
+    <script>
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('nav-placeholder').innerHTML = data;
+            });
+    </script>
 </body>
 </html>

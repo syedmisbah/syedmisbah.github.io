@@ -8,7 +8,7 @@
         body {
             font-family: sans-serif;
             margin: 40px;
-            background-color: rgba(255, 218, 185, 0.3);
+            background-color: rgba(173, 216, 230, 0.15); /* Light Blue with 15% opacity */
         }
         .container {
             display: flex;
@@ -24,45 +24,72 @@
             display: block;
             margin-bottom: 10px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: normal; /* Ensure nav links are not bold */
+            color: black; /* Ensure nav links are black */
+        }
+        /* General link styling */
+        a, a:visited {
+            color: black;
+            font-weight: normal;
+            text-decoration: underline;
         }
         .main-content {
             flex-grow: 1;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
         }
-        th, td {
+        .card {
             border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #fff;
         }
-        th {
-            background-color: #f2f2f2;
+        .card h3 {
+            margin-top: 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            nav {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+            nav a {
+                display: inline-block;
+                margin: 0 10px;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <nav>
-            <a href="/">Home</a>
-            <a href="writes.html">Blog</a>
-            <a href="quips.html">Quips</a>
-            <a href="reading-list.html">Reading List</a>
-        </nav>
+        <div id="nav-placeholder"></div>
         <div class="main-content">
             <header>
                 <h1>Reading List</h1>
             </header>
             <main>
-                <table id="csv-table">
-                    <thead></thead>
-                    <tbody></tbody>
-                </table>
+                <div id="card-grid" class="card-grid"></div>
             </main>
         </div>
     </div>
+    <script>
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('nav-placeholder').innerHTML = data;
+            });
+    </script>
     <script>
         function parseCsv() {
             fetch('data/sys_design.csv')
@@ -72,41 +99,28 @@
                         header: true,
                         skipEmptyLines: true,
                         complete: function(results) {
-                            const table = document.getElementById('csv-table');
-                            const thead = table.querySelector('thead');
-                            const tbody = table.querySelector('tbody');
-                            const fields = results.meta.fields.filter(field => field !== 'Tag');
-                            
-                            // Create header row
-                            const headerRow = document.createElement('tr');
-                            fields.forEach(field => {
-                                const th = document.createElement('th');
-                                if (field === 'Short Description (< 5 words)') {
-                                    th.textContent = 'Description';
-                                } else {
-                                    th.textContent = field;
-                                }
-                                headerRow.appendChild(th);
-                            });
-                            thead.appendChild(headerRow);
-                            
-                            // Create data rows
+                            const cardGrid = document.getElementById('card-grid');
                             results.data.forEach(row => {
-                                const dataRow = document.createElement('tr');
-                                fields.forEach(field => {
-                                    const td = document.createElement('td');
-                                    if (field === 'Link') {
-                                        const a = document.createElement('a');
-                                        a.href = row[field];
-                                        a.textContent = 'Link';
-                                        a.target = '_blank';
-                                        td.appendChild(a);
-                                    } else {
-                                        td.textContent = row[field];
-                                    }
-                                    dataRow.appendChild(td);
-                                });
-                                tbody.appendChild(dataRow);
+                                const card = document.createElement('div');
+                                card.className = 'card';
+
+                                const title = document.createElement('h3');
+                                title.innerHTML = `${row['Title']} <a href="${row['Link']}" target="_blank" style="color: black; font-weight: normal;">[Link]</a>`;
+                                card.appendChild(title);
+
+                                const company = document.createElement('p');
+                                company.textContent = `Company: ${row['Company']}`;
+                                card.appendChild(company);
+
+                                const description = document.createElement('p');
+                                description.textContent = row['Short Description (< 5 words)'];
+                                card.appendChild(description);
+
+                                const year = document.createElement('p');
+                                year.textContent = `Year: ${row['Year']}`;
+                                card.appendChild(year);
+
+                                cardGrid.appendChild(card);
                             });
                         }
                     });

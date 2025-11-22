@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syed Misbah</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="container">
+        <div id="nav-placeholder"></div>
+        <div class="main-content">
+            <header>
+                <img src="img/dp.jpg" alt="Syed Misbah" class="profile-pic">
+                <h1>Syed Misbah</h1>
+                <p>+91 906 (666) 5419 | <a href="mailto:mailsyedmisbah@gmail.com">mailsyedmisbah@gmail.com</a> | <a href="https://www.linkedin.com/in/syedmisbah" target="_blank">LinkedIn</a></p>
+                <p><em>I build classical ML and AI solutions.</em></p>
+            </header>
+            <main>
+                <p>I am a Data Science & Engg. Manager at Dish, the world's largest satellite television provider.</p>
+                <p>Previously, I worked at Evalueserve and Mu Sigma as a lead data scientist across industries like CPG, retail, manufacturing, airlines and fintech.</p>
+            </main>
+        </div>
+    </div>
+    <script>
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('nav-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html>

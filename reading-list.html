@@ -4,72 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reading List - Syed Misbah</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            margin: 40px;
-            background-color: rgba(173, 216, 230, 0.15); /* Light Blue with 15% opacity */
-        }
-        .container {
-            display: flex;
-            max-width: 1140px;
-            margin: 0 auto;
-        }
-        nav {
-            width: 150px;
-            margin-right: 40px;
-            flex-shrink: 0;
-        }
-        nav a {
-            display: block;
-            margin-bottom: 10px;
-            text-decoration: none;
-            font-weight: normal; /* Ensure nav links are not bold */
-            color: black; /* Ensure nav links are black */
-        }
-        /* General link styling */
-        a, a:visited {
-            color: black;
-            font-weight: normal;
-            text-decoration: underline;
-        }
-        .main-content {
-            flex-grow: 1;
-        }
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        .card {
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 5px;
-            background-color: #fff;
-        }
-        .card h3 {
-            margin-top: 0;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-            nav {
-                width: 100%;
-                margin-right: 0;
-                margin-bottom: 20px;
-                text-align: center;
-            }
-            nav a {
-                display: inline-block;
-                margin: 0 10px;
-            }
-            .card-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <div class="container">

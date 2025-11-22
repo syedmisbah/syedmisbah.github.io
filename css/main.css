@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 20px; /* Adjusted for better spacing on smaller screens */
+    background-color: rgba(173, 216, 230, 0.15); /* Light Blue with 15% opacity */
+}
+
+.container {
+    display: flex;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px; /* Slight round radius */
+}
+
+nav {
+    width: 150px;
+    margin-right: 40px;
+    flex-shrink: 0;
+}
+
+nav a {
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    font-weight: normal; /* Ensure nav links are not bold */
+    color: black; /* Ensure nav links are black */
+}
+
+/* General link styling */
+a, a:visited {
+    color: black;
+    font-weight: normal;
+    text-decoration: underline;
+}
+
+header p {
+    max-width: 60ch;
+}
+
+.main-content {
+    flex-grow: 1;
+    overflow: auto; /* Prevent content from breaking out of the container */
+}
+
+.post-list {
+    list-style: disc; /* Explicit bullet points */
+    padding-left: 20px; /* Add padding for bullets to show */
+}
+
+.post-list li {
+    margin-bottom: 8px; /* Less gap between bullets */
+    font-size: 1em; /* Smaller font size for the whole list item */
+    color: black; /* Default text color for list item */
+    font-weight: normal; /* Ensure list item text is not bold */
+}
+
+.post-list li em {
+    color: lightgrey; /* Light grey for date */
+    font-style: italic; /* Ensure italic for date */
+}
+
+blockquote {
+    border-left: 2px solid #ccc;
+    padding-left: 20px;
+    margin-left: 0;
+    margin-bottom: 52px; /* Increased by 100% */
+    font-style: italic;
+    word-wrap: break-word; /* Ensure long words do not overflow */
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+/* Responsive styles for tablets and smaller devices */
+@media (max-width: 1024px) {
+    body {
+        margin: 20px;
+    }
+    .container {
+        flex-direction: column;
+    }
+    nav {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    nav a {
+        display: inline-block;
+        margin: 0 10px;
+        padding: 5px 0;
+    }
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+}

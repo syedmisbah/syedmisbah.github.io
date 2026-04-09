@@ -12,10 +12,21 @@ body {
     margin: 0 auto;
 }
 
+.header-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.header-text {
+    flex: 1;
+}
+
 .profile-pic {
     width: 150px;
     height: 150px;
-    border-radius: 10px; /* Slight round radius */
+    border-radius: 10px;
+    flex-shrink: 0;
 }
 
 nav {
@@ -53,8 +64,9 @@ header p {
     padding-left: 20px; /* Add padding for bullets to show */
 }
 
-.post-list li {
-    margin-bottom: 8px; /* Less gap between bullets */
+.post-list li,
+main ul li {
+    margin-bottom: 0.6em;
     font-size: 1em; /* Smaller font size for the whole list item */
     color: black; /* Default text color for list item */
     font-weight: normal; /* Ensure list item text is not bold */
@@ -112,5 +124,12 @@ blockquote {
     }
     .card-grid {
         grid-template-columns: 1fr;
+    }
+    .header-layout {
+        flex-direction: column;
+    }
+    .profile-pic {
+        width: 100px;
+        height: 100px;
     }
 }
